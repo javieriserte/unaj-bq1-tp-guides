@@ -1,0 +1,254 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+%\usepackage{boolexpr}
+\usepackage{datetime}
+\usepackage{hyperref}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 18cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 25.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin -1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin -1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10 pt									% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Bioquímica I}				                                                % Guardo el nombre de la asignatura.
+\newcommand{\seminarioName}{Trabajo Práctico N° 5 - Estructura de proteínas}    % Guardo el nombre de la guía de ejercicios.
+\newcommand{\fecha}{\ddmmyyyydate\today}                                          % Guardo la fecha.
+\newcommand{\titulo}{																										       	% Para hacer el Título como me gusta
+	\begin{center}																												        % Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\										              % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}																													  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}							% Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+
+  \section{Estructura de proteínas}
+	
+  \subsection{Clasificación del plegado}
+  
+  Todas las proteínas, o prácticamente todas, tienen similitudes estructurales con otras proteínas, muchas veces derivadas 
+  por compartir un ancestro evolutivo común. La base de datos SCOP (\textit{Structural Classification of Proteins}) 
+  contiene información detallada de las relaciones estructurales y evolutivas entre las proteínas de estructura conocida.
+	La dirección web de SCOP es  \href{http://scop.mrc-lmb.cam.ac.uk/scop/}{http://scop.mrc-lmb.cam.ac.uk/scop/}.
+  
+  La clasificación de SCOP fue construída manualmente, revisando y comparando estructuras visualmente, y con la ayuda de 
+  sofware que facilita y acelera el proceso. La clasificación de la base de datos es jerárquica. Los niveles de mayor 
+  relevenacia son los cuatro que se muestran a continuación, mostrados de mayor nivel jerárquico a menor:
+  \begin{description}
+    \item[Clase] La clasificación está dada por diversos elementos. Principalmente por la organización de los elementos 
+    de estructura secundaria, ubicación celular y tamaño. No contiene información evolutiva.
+    \item[Fold] Las proteínas dentro de un Fold contienen los elementos mismos elementos principales de estructura secuendaria 
+    ordenados de la misma forma y con las mismas conexiones topológicas. No implica que haya un ancestro evolutivo común.
+    \item[Superfamilia] Las proteínas en las superfamilias probablemente contienen un ancestro común y comparten el Fold. 
+    La identidad de estructura primaria es baja, pero existen similitudes estructurales y funcionales que sugieren 
+    un origen común.
+    \item[Familia] Las proteínas en un familia contienen una clara relación evolutiva. La identidad de estructura primaria suele
+    ser alta.
+  \end{description}
+  
+  Las cuatro Clases más importantes en la clasificación de SCOP utilizan los elementos de estructura secundaria más relevantes 
+  en su clasificación: las hélices $\alpha$ y las hojas plegadas $\beta$. De acuerdo a la abundancia y organización de ellos 
+  de los ubica en una de estas cuatro Clases:
+  
+\begin{description}
+	\item[Proteínas All-alpha] Las proteínas $All-\alpha$ son aquellas que están compuestas casi exclusivamente por hélices $\alpha$.
+	\item[Proteínas All-beta] Las proteínas $All-\beta$ son aquellas que están compuestas casi exclusivamente por hélices $\beta$.
+	\item[Proteínas alpha + beta] Las proteínas $\alpha + \beta$ son aquellas en las cuales la estructura secundaria está compuesta de $\alpha$ hélices y hojas $\beta$ que se encuentran separadas a lo largo del esqueleto de la proteína. En general tienen hojas beta antiparalelas.
+	\item[Proteínas alpha / beta] Las proteínas $\alpha / \beta$ son aquellas en las cuales la estructura secundaria está compuesta de $\alpha$ hélices y hojas $\beta$ que se encuentran mayormente intercaladas a lo largo del esqueleto de la proteína. En general tienen hojas beta paralelas.
+\end{description}
+  
+  En esta sección de trabajo práctico se clasificarán ocho proteínas con estructura conocida 
+  (extraída de la base de datos PDB) en alguna de las Clases principales de SCOP de acuerdo a sus elementos de estructura
+  secundaria.
+  \begin{itemize}
+	\item Clasificar las proteínas de los archivos en $\alpha + \beta$, $\alpha / \beta$ $All-\alpha$ y $All-\beta$. 
+		\begin{multicols}{3}
+			\begin{enumerate}
+				\item 1XLY.pdb
+				\item 2RLT.pdb
+				\item 1RO8.pdb
+				\item 2OZ5.pdb
+				\item 1QR0.pdb
+				\item 2FDO.pdb
+				\item 1DCZ.pdb
+				\item 1ITV.pdb 
+			\end{enumerate}
+		\end{multicols}
+%	\item 1XLY.pdb $All-\alpha$
+%	\item 2RLT.pdb $All-\alpha$
+%	\item 1RO8.pdb $\alpha / \beta$
+%	\item 2OZ5.pdb $\alpha / \beta$
+%	\item 1QR0.pdb $\alpha + \beta$
+%	\item 2FDO.pdb $\alpha + \beta$
+%	\item 1DCZ.pdb $All-\beta$
+%	\item 1ITV.pdb $All-\beta$
+	\end{itemize}
+  \subsection{Identificación de dominios}
+  Las regiones funcionalmente o estructuralemente importantes dentro una proteína están usualmente separadas espacialmente. 
+  Cada una de estas regiones distintivas se las denomina dominio. Las proteínas, aunque frecuentemente
+  cumplen una única actividad (por ejemplo, catalizar una reacción del metabolismo), pueden poseer varios dominios. 
+  Cada uno de ellos asociado a una subfunción particular, por ejemplo, un dominio catalítico, un dominio de interacción 
+  con una proteína reguladora, un dominio de unión de una molécula moduladora de la actividad, etc.
+  
+  Los archivos '1G97.pdb' y '3PP7.pdb' contienen las estructuras de dos proteínas que poseen más de un dominio. 
+  \begin{itemize}
+  	\item Identifique visualmente los dominios.
+  	\item ¿Todos los dominios son contiguos en secuencia?
+		% Los dominios según CATH son:
+		% >cath|4_0_0|3pp7A01/1-18_354-497
+    % SQLAHNLTLSIFDPVANYQSALNEYVFFNSIKKLQHIPMSADEAVCSSAVNSVYETKAKAMVVLSNTGRS
+    % ARLVAKYRPNCPIVCVTTRLQTCRQLNITQGVESVFFDADKLGHDEGKEHRVAAGVEFAKSKGYVQTGDY
+    % CVVIHAYANQTRILLV
+		% >cath|4_0_0|3pp7A02/19-86_188-353
+    % RAARIICTIGPSTQSVEALKGLIQSGMSVARMNFSHGSHEYHQTTINNVRQAAAELGVNIAIALDTKGAV
+		% SAKDRVDLQFGVEQGVDMIFASFIRSAEQVGDVRKALGPKGRDIMIICKIENHQGVQNIDSIIEESDGIM
+		% VARGDLGVEIPAEKVVVAQKILISKCNVAGKPVICATQMLESMTYNPRPTRAEVSDVANAVFNGADCVML
+		% SGETAKGKYPNEVVQYMARICLEA
+		% >cath|4_0_0|3pp7A03/87-187
+    % PEIRTGQFVGGDAVMERGATCYVTTDPAFADKGTKDKFYIDYQNLSKVVRPGNYIYIDDGILILQVQSHE
+		% DEQTLECTVTNSHTISDRRGVNLPGCDVDLP
+
+  \end{itemize}
+  
+  \subsection{Hélices $\alpha$}
+  En esta sección se analizarán algunas de las propiedades importantes de las hélices $\alpha$. En particular se
+  analizarán la ubicación geométrica de los residuos y los enlaces que confieren estabilidad a la hélice.
+  \begin{itemize}
+	\item Abrir el archivo '3PL9.h.pdb'.
+	\item Contar la cantidad de residuos que hay en cada una de las dos hélices $\alpha$.
+	\item Contar la cantidad vueltas que tiene cada hélice.
+	\item Estimar aproximadamente la cantidad de residuos por vuelta.
+	\item ¿Que enlaces son los que estabilizan a la hélice? 
+	\item Medir las distancias de estos enlaces.
+	\item Construir un gráfico tipo \textit{helical wheel} para una de las hélices $\alpha$.
+	\end{itemize}
+
+  \subsection{Hojas $\beta$}
+  Las hojas plegadas $\beta$ en una proteína suelen estar en contacto con otra hojas plegadas $\beta$. Dos hojas en contacto
+  pueden estar orientadas paralelamente o de forma antiparalela, de acuerdo a si coinciden o no la dirección de los residuos.
+  
+  En esta sección del trabajo se determinará la disposición paralela o antiparalela de dos pares de hojas plegadas. Además, 
+  se identificarán las interacciones estabilizan el contacto entre ellas.
+  
+  \begin{itemize}
+	\item Abrir los archivos '1qr0.h.pdb' y '2oz5.h.pdb'.
+	\item Determinar si las que aparecen son hojas paralelas o antiparalelas.
+	\item Medir las distancias de los enlances entre las hojas.
+	\end{itemize}
+	
+  %\section{Estructura del DNA}
+  %En el archivo 3BSE.f.pdb se encuentra las estructura tridimensional del dos bases del DNA y el archivo 3BSE.h.pdb contiene la estructura tridimensional de dos cadenas de DNA formando la doble hebra.
+  %
+  %\begin{itemize}
+		%\item Abrir el archivo 3BSE.f.pdb. Dibujar la estructura de ambas moléculas a partir de la estructura tridimensional.
+		%\item ¿Qué tipo de interaccíones pueden establecerse entre ambas bases?
+		%\item Medir los ángulos en los anillos de las ribosas, ¿son todos iguales?, ¿es posible explicar porqué?
+		%\item Abrir el archivo 3BSE.h.pdb. Medir la distancia de los diez enlaces de cada uno de los tipos señalados debajo. Calcular la media y la desviación estándar .
+		%\begin{itemize}
+			%\item Entre dos átomos de carbono del anillo en las bases.
+			%\item Entre dos átomos de carbono en la ribosa.	
+			%\item Entre un átomo de óxígeno y uno de carbono en la ribosa.
+			%\item De la unión entre las bases.
+		%\end{itemize}
+	  %\begin{description}
+			%\item[Media ($\bar{X}$)] Se calcula como la suma de todos los valores y diviendo por la cantidad de muestras.
+			%\begin{equation}
+					%\bar{X} = \frac{\sum_{i=1}^{n}X_{i}}{n}
+			%\label{eq:1}
+			%\end{equation}
+			%\item[Desviación estándar ($\sigma$)] Se calcula De la siguiente forma:
+			%\begin{equation}
+					%\sigma = \sqrt{\frac{\sum_{i=1}^{n}(X_{i}-\bar{X})^2}{n}}
+			%\label{eq:2}
+			%\end{equation}
+		%\end{description}
+	%\item ¿por qué la distancia de enlace C-C en las bases es diferente al de las ribosas?	
+	%\item ¿Es igual la distancia C-O y C-C en la ribosa?
+	%\item Medir la distancia entre los planos de dos pares de bases consecutivos.
+	%\end{itemize}
+	
+\end{document}
+  

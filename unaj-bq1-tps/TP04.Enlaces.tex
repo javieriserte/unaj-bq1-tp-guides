@@ -1,0 +1,283 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+%\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+%\usepackage{boolexpr}
+\usepackage{datetime}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 18cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 25.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin -1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin -1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10pt										% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Bioquímica I}				                                                % Guardo el nombre de la asignatura.
+\newcommand{\seminarioName}{Trabajo Práctico N° 4 - Geometría y distancias de enlaces}    % Guardo el nombre de la guía de ejercicios.
+\newcommand{\fecha}{\ddmmyyyydate\today}                                        % Guardo la fecha.
+\newcommand{\titulo}{																										       	% Para hacer el Título como me gusta
+	\begin{center}																												        % Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\										              % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}																													  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}							% Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+
+  \section{Protein Data Bank}
+  El \textit{Protein Data Bank} (PDB, Banco de Datos de Proteínas, http://www.pdb.org) es un archivo de estructuras tridimensional de macromoléculas biológicas que han sido determinadas experimentalmente. Cada registro de la base de datos contiene coordenadas atómicas, citas bibliográficas, información sobre la estructura primaria y secundaria, elementos y datos sobre las condiciones experimentales. Sin embargo, no contiene información sobre los enlaces y las cargas de cada átomo. L
+  
+  La cristalografía por rayos X y la resonancia magnetica nuclear (NMR) son las técnicas que permiten la determinación de las coordenadas atómicas de macromoléculas. En 1958, Kendrew et al \cite{KENDREW:1958} determinaron por primera vez la estructura tridimensional de una proteína, la mioglobina.
+  
+  Actualmente, PDB almacena información de casi cien mil estructuras. Cada registro en el PDB se identifica univocamente con una serie de cuatro letras o números. Este código se denomina PDB ID. Por ejemplo, el PDB ID '4IKA' corresponde a una estructura de la enzima ARN polimerasa dependiente de ARN.
+  
+  La información que se obtiene para un estructura del PDB está organizada con formato específico, que se llama formato PDB. Este provee una representación estandarizada de las coordenadas atómicas y otro tipo de datos. Fue creado en los 70's y es el más utilizado actualmente. Además, es muy simple de leer y editar por el ser humano.
+  
+  En la actualidad, existen muchos \textit{softwares} que permiten visualizar y manipular la información contenida en los archivos del PDB.
+  Algunos de los más usuales son:
+  \begin{description}
+	  \item[Rasmol] http://rasmol.org
+	  \item[UCSF Chimera] www.cgl.ucsf.edu/chimera/
+	  \item[VMD] www.ks.uiuc.edu/Research/vmd/
+	\end{description}
+  Todos ellos son desarrollados por entidades educativas y son de acceso libre. 
+  En este trabajo práctico utilizaremos el programa Rasmol. 
+  Este programa es el más simple de utilizar, es el que tiene menos requerimientos de \textit{hardware} y es muy sencillo instalarlo.
+  
+  \begin{itemize}
+	  \item Abrir el archivo 3BSE.pdb con un editor de texto: notepad o wordpad, puede ser word también.
+	  \item Mirar las diferentes secciones del archivo y su estructura.
+	  \item ¿Qué información contienen las filas que comienzan con 'ATOM' y 'HETATOM'?
+	  \item Es muy frecuente que los archivos en formato PDB no contengan la información de los átomos de hidrógeno.
+	  \begin{itemize}
+			\item ¿por qué puede ser?
+			\item ¿será esto un inconveniente?
+		\end{itemize}
+	  \item ¿Se podrá construir un archivo PDB que represente a un cubo formados por átomos de carbonos?
+	\end{itemize}
+  
+  \section{Geometría de enlace de moléculas pequeñas}
+  
+  Los archivos PDB contiene información acerca de las coordenadas espaciales de cada átomo. 
+  Sin embargo, no contiene información acerca que átomos están enlazados ni, evidentemente, que tipo de enlaces son.
+  La ausencia de esta información, no implica un impedimento en el análisis de las estructuras ya que es posible reconstruirla
+  a partir de la geometría con la que los átomos están ubicados.
+  Los enlaces, son determinados por la distancia entre los átomos y la geometría en la disposición de los enlaces nos ayuda a 
+  distinguir la hibridación de los orbitales, lo que a su vez no ayuda a determinar que tipo de enlaces pueden estar involucrados.
+  
+  En esta sección del trabajo práctico trabajaremos con algunas herramientas para analizar la geometría de los enlances
+  y se construirán las representaciones moleculares clásicas para las moléulas trabajadas. 
+  Los archivos ASP1.pdb y Fruc.pdb contienen la estrucutra tridimensional del aspartato y de la fructosa, respectivamente.
+
+  \begin{enumerate}
+    \item El archivo PDB no contiene información acerca los enlaces entre los átomos, ¿cómo puede ser posible inferir esta información?
+    \item Medir los ángulos de enlace para los carbonos $\alpha$ y $\alpha$-carboxilo del aspartato.
+    \item Decir cuál es la hibridación de orbitales para cada átomo de carbono y nitrógeno.
+    \item ¿Hay dobles enlaces en las moléculas de aspartato y de fructosa?
+    \item ¿El aspartato, tiene configuración D o L?
+    \item Dibujar la proyección de Fischer para aspartato en el estado de ionización que corresponde a la estructura mostrada.
+    \item Dibujar la proyección de Fischer para aspartato en el estado de ionización que corresponde a la estructura mostrada en el archivo ASP2.pdb.
+    \item ¿Existirán ambas formas del aspartato en solución?
+    \item Dibujar la proyección de Fischer para la fructosa.
+  \end{enumerate}
+	
+ \section{Estructura de péptidos}
+	En esta sección del trabajo se determinaraá la estructura primaria de un péptido a partir de su estructura tridimensional,
+	además, se analizarán algunas caracteríasticas geométricas importantes para el estudio de proteínas.
+	En el archivo peptid.pdb la información correspondiente a la estructura de un oligopéptido que forma parte de la hormona peptídica insulina. 
+	
+	\begin{enumerate}
+	\item ¿Cuántos resíduos tiene?
+	\item ¿Cuales son y en que orden están?
+	\item ¿Cual es la distancia de los enlaces el N amino del C-$\alpha$ con los carbonos adyacentes? ¿Como se explica la diferencia?
+	\item ¿Cuáles son los ángulos dihedros ($\phi$,$\psi$) que corresponden al residuo en la segunda posición?
+	\item Rotar los ángulos hasta llevarlos a (0º,0º), ¿Este ángulo estará permitido en la realidad?
+	\item Construir un gráfico de Ramachandran ($\phi$ vs. $\psi$) para este péptido.
+	\item ¿Cómo podría inferir si un residuo está formando parte de una hélice alfa o una hoja beta automáticamente?
+	\end{enumerate}
+	
+\section{Estereoisómeros de monosacáridos}
+	
+	En esta sección del trabajo se trabajar con estereoisómeros de un monosacaridos.
+	Se analizarán los diferentes tipos de isomerias que pueden se presentar y se distinguiran cada uno de ellos.
+  Los archivos, monosacar\_0.pdb, monosacar\_1.pdb y monosacar\_2.pdb contienen las estructuras de tres estereoisómeros de una hexosa.
+
+  \begin{enumerate}
+    \item Dibujar la estructura de Fischer de cada uno de ellos.
+    \item ¿Cuál es el nombre común que le corresponde estos isómeros?
+    \item ¿Cuáles son enantiómeros?   % 
+    \item ¿Cuáles son diasterómeros?  % 
+    \item ¿Cuáles son anómeros?       % 
+    \item ¿Cuáles son epímeros?       % 
+    \item ¿Cuál es el nombre completo de cada una?
+  \end{enumerate}
+	
+%  \section{Medición de enlaces en el DNA}
+%  
+%  En el archivo 3BSE.f.pdb se encuentra las estructura tridimensional del dos bases del DNA y el archivo 3BSE.h.pdb contiene la estructura tridimensional de dos cadenas de DNA formando la doble hebra.
+%  
+%  \begin{itemize}
+%		\item Abrir el archivo 3BSE.f.pdb. Dibujar la estructura de ambas moléculas a partir de la estructura tridimensional.
+%		\item ¿Qué tipo de interaccíones pueden establecerse entre ambas bases?
+%		\item Medir los ángulos en los anillos de las ribosas, ¿son todos iguales?, ¿es posible explicar porqué?
+%		\item Abrir el archivo 3BSE.h.pdb. Medir la distancia de los diez enlaces de cada uno de los tipos señalados debajo. Calcular la media y la desviación estándar .
+%		\begin{itemize}
+%			\item Entre dos átomos de carbono del anillo en las bases.
+%			\item Entre dos átomos de carbono en la ribosa.	
+%			\item Entre un átomo de óxígeno y uno de carbono en la ribosa.
+%			\item De la unión entre las bases.
+%		\end{itemize}
+%	  \begin{description}
+%			\item[Media ($\bar{X}$)] Se calcula como la suma de todos los valores y diviendo por la cantidad de muestras.
+%			\begin{equation}
+%					\bar{X} = \frac{\sum_{i=1}^{n}X_{i}}{n}
+%			\label{eq:1}
+%			\end{equation}
+%			\item[Desviación estándar ($\sigma$)] Se calcula De la siguiente forma:
+%			\begin{equation}
+%					\sigma = \sqrt{\frac{\sum_{i=1}^{n}(X_{i}-\bar{X})^2}{n}}
+%			\label{eq:2}
+%			\end{equation}
+%		\end{description}
+%	\item ¿por qué la distancia de enlace C-C en las bases es diferente al de las ribosas?	
+%	\item ¿Es igual la distancia C-O y C-C en la ribosa?
+%	\item Medir la distancia entre los planos de dos pares de bases consecutivos.
+%	\end{itemize}
+	
+\section{Cálculo de los ángulos $\phi$ y $\psi$}
+La visualización de los ángluos psi y phi en la estructura tridimensional de una proteína puede resultar 
+una tarea difícil para el ojo no entrenado. Para facilitar esta tarea, en la figura se muestra una ayuda de como llevar a cabo la medición de estos ángulos.
+\begin{itemize}
+	\item En primer lugar se deben identificar los cuatro átomos involucrados (N, Ca, C1 y N' para psi, C1', N Ca y C1 para phi).
+	\item Rotar las moléculas, de forma tal que los átomos centrales (Ca y C1, para psi, N y Ca para phi) se solapen en un punto al mirarlos.
+Tener cuidado al decidir que átomo es el más cercano, el orden en que estos se encuentran es importante.
+	\item Medir el ángulo formado en la proyección de los dos átomos centrales y el punto de solapamiento de los dos átomos centrales.
+	\item Decidir el signo del ángulo de acuerdo a la figura.
+\end{itemize}
+	\begin{figure}[Hbt]
+	  \begin{center}
+			\includegraphics[width=8cm]{phi_psi.pdf}%
+			\caption{Cálculo de los ángulos dihedros $\phi$ y $\psi$}%
+			\label{}%
+		\end{center}
+	\end{figure}
+	
+\section{Comandos útiles en Rasmol}
+\begin{description}
+  \item[Rotar molécula] Hacer 'clic' en la ventana gráfica y arrastrar sin soltar.
+  \item[Zoom in/out] Hacer 'clic' + 'shift' en la ventana gráfica y arrastrar sin soltar hacia arriba o abajo.
+  \item[Desplazar] Hacer 'clic derecho' en la ventana gráfica y arrastrar sin soltar.
+  \item[Información sobre un átomo] Ir al menú 'Configuraciones' -> 'Elegir identificación'. Luego hacer 'clic' sobre algún átomo.
+	\item[Medición de distancias de enlace] Ir al menú 'Configuraciones' -> 'Elegir distancias'. Luego hacer 'clic' sobre dos átomos diferentes consecutivos.
+	\item[Medición de ángulos] Ir al menú 'Configuraciones' -> 'Elegir ángulo'. Luego hacer 'clic' sobre tres átomos diferentes
+ consecutivos.
+  \item[Ver los ángulos $\phi$ y $\psi$] Ir a la línea de comandos. Tipear 'show phipsi' y 'ENTER'.
+  \item[Cambiar el ancho de los 'bastones'] Ir a la línea de comandos. Tipear 'wireframe 50' y 'ENTER'. El valor 50 se puede cambiar por otros números.
+\end{description}
+
+\begin{thebibliography}{9}
+
+\bibitem{KENDREW:1958}
+    Kendrew, J. C.  and Bodo, G.  and Dintzis, H. M.  and Parrish, R. G.  and Wyckoff, H.  and Phillips, D. C.,
+    {A} three-dimensional model of the myoglobin molecule obtained by x-ray analysis.
+    Nature,
+    181,
+    4610,
+    Mar,
+    1958.
+
+\end{thebibliography}
+\end{document}
+
+  % 13517261 
+%@Article{pmid13517261,
+%   Author="KENDREW, J. C.  and BODO, G.  and DINTZIS, H. M.  and PARRISH, R. G.  and WYCKOFF, H.  and PHILLIPS, D. C. ",
+%   Title="{{A} three-dimensional model of the myoglobin molecule obtained by x-ray analysis}",
+%   Journal="Nature",
+%   Year="1958",
+%   Volume="181",
+%   Number="4610",
+%   Pages="662--666",
+%   Month="Mar"
+%}
+

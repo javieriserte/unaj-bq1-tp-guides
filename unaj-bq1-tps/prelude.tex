@@ -1,0 +1,79 @@
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+%\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}              % para manejar multiples columas
+\usepackage{graphicx}           % Para manejar los gráficos
+\usepackage{fancyhdr}           % Para manejar encabezados y pie de páginas
+\usepackage{lastpage}           % Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf}      % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+\usepackage{datetime}
+%\usepackage{boolexpr}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 15cm                 % Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 25.7cm              % Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin 0.5cm             % Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin 0.5cm            % Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -1.5cm               % Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm                 % Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10pt                   % Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+
+% Formato de fecha
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\dateseparator}{-}
+
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth} 
+\newcommand{\materiaName}{Bioqu��mica I}                                   % Guardo el nombre de la asignatura.
+
+\newcommand{\fecha}{\ddmmyyyydate\today}                                    % Guardo la fecha.
+\newcommand{\titulo}{                                                     % Para hacer el Título como me gusta
+  \begin{center}                                                          % Para hacer el Título como me gusta
+  \vspace*{-22pt}\large\textbf{\materiaName}\\                            % Para hacer el Título como me gusta        
+  \vspace{2pt}\normalsize{\seminarioName}\\                               % Para hacer el Título como me gusta
+  \vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\                                                 % Para hacer el Título como me gusta
+  \vspace{-6pt}\rule{\textwidth}{0.4pt}
+  \end{center}                                                            % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt                                                          % Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}                                      % Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}                                      % Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%                                                        % Creo el encabezado y pie página que quiero.
+\fancyfoot{}                                                              % Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{P�gina \thepage\ de \pageref{LastPage}}}             % Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}                                       % Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}                          % Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}

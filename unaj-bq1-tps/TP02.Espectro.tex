@@ -1,0 +1,304 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+%\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+%\usepackage[utf8]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+\usepackage{datetime}
+%\usepackage{boolexpr}
+\usepackage{natbib}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 18cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 25.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin -1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin -1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10pt										% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliographystyle{alpha}       % estilo de la bibliografia
+\bibliographystyle{jplainnat}  	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Bioquímica I}				                            % Guardo el nombre de la asignatura.
+\newcommand{\seminarioName}{Trabajo Práctico N° 2 - Espectrofotometría}   % Guardo el nombre de la guía de ejercicios.
+\newcommand{\fecha}{\ddmmyyyydate\today}                                                % Guardo la fecha.
+\newcommand{\titulo}{																% Para hacer el Título como me gusta
+	\begin{center}																% Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\								% Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\									% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\  % Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}                                                                  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																								% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																								% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																									% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}                                              % Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}                                                                         % Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}                                                           % Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+  
+  \section{Ley de Lambert \& Beer}
+  Es evidente que cuando un hay de luz atraviesa un material semitransparente su intensidad disminuye.
+  Ente cambio en la intensidad lumínica depende de que material que sea, y del espesor del mismo que debe atravesar.
+  La ley de Lambert \& Beer es una ecuación que permite modelar matemáticamente este comportamiento.
+  Aunque esta idea es aplicable a cualquier tipo de material semitransparente, para nosotros es particularmente 
+  importante para a soluciones de compuestos capaces de absorber luz y para a suspensiones que, en lugar de absorber luz, 
+  la dispersan, por ejemplo, cultivos bacterianos.
+  
+  Para hallar la ecuación de la ley de Lambert \& Beer, partiremos de la siguiente situación:
+  Se tiene un conjunto de haces de luz paralelos y de la misma longitud de onda que inciden perpendicularmente sobre un material semitransparente, como se muestra en la figura \ref{fig:LB01}. 
+  Denotamos como $I_i$ a la intensidad del hay de luz antes de incidir sobre el material y $I_f$ a la intensidad del haz de luz luego de atravesar el mismo.
+  
+\begin{figure}[!ht]
+	\centering
+		\includegraphics{LAB_01.pdf}
+	\caption{Haz de luz atravesando un material de espesor $Z$.}		
+	\label{fig:LB01}
+\end{figure}
+
+  Dividamos el espesor $Z$ del material en varias secciones más pequeñas de espesor $\Delta Z$ (ver figura \ref{fig:LB02}). 
+  Continuemos el desarrollo teniendo en cuenta solo una de estas secciones de tamaño $\Delta Z$ (ver figura \ref{fig:LB03}). 
+  Nos interesa trabajar con el cambio de intensidad a través de esta sección, es decir $I_f - I_i = \Delta I$.
+  
+\begin{figure}[!ht]
+	\centering
+		\includegraphics{LAB_02.pdf}
+	\caption{Se divide el espesor $Z$ en multiples secciones del espesor $\Delta Z$}
+	\label{fig:LB02}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+		\includegraphics{LAB_03.pdf}
+	\caption{El material es de espesor $\Delta Z$ infinitesimalmente pequeño}		
+	\label{fig:LB03}
+\end{figure}	
+
+	Si asumimos que dentro de la sección del material existe un número $N$ de partículas capaces de absorber luz y que cada una de ellas tiene un área, $\sigma$, transversal al haz de luz. 
+	Entonces, podemos decribir el cambio de intensidad con la siguiente ecuación:
+	
+\begin{equation}
+	I_f - I_i = \Delta I = - I_i \sigma N \Delta Z
+\label{eq:1}
+\end{equation}
+
+	Si consideramos que el espesor del material $\Delta Z$ es infinitesimal, $dZ$, y en consecuencia que la diferencia de intensidad también lo es, $dI$, podemos reescribir la ecuación \ref{eq:1} de la siguiente forma:
+
+\begin{equation}
+	dI = - I \sigma N dZ
+\label{eq:2}
+\end{equation}
+  
+  La cual puede ser reescrita como:
+ 
+\begin{equation}
+	\frac{dI}{I} = - dZ \sigma N
+\label{eq:3}
+\end{equation}
+
+	Esta es un ecuación diferencial y podemos resolverla de manera sencilla integrando en ambos lados de la igualadad:
+	
+\begin{eqnarray}
+	\int{\frac{dI}{I}} & = & - \sigma N \int{dZ} \\
+	\ln{I} & = & - \sigma N Z + C
+\label{eq:4}
+\end{eqnarray}
+	
+  Esta ecuación nos permite calcular la variación de la intensidad de luz que se observa al atravesar un material de cualquier espesos $Z$.
+
+\begin{eqnarray}
+	\ln{I_f} - \ln{I_i}  & = & - \sigma N Z + C - ( \sigma N (0) + C ) \\ 
+	\ln{\frac{I_f}{I_i}} & = & - \sigma N Z + C - C  \\ 
+	\ln{\frac{I_f}{I_i}} & = & - \sigma N Z \\
+	\frac{I_f}{I_i}      & = & \mathrm{e} ^ {-\sigma N Z}
+\label{eq:5}
+\end{eqnarray}
+  El producto $\sigma N$, es proporcional a la concentración de las partículas que absorben y puede reescribirse como $\alpha C$, siendo $C$ la concentración.
+
+\begin{equation}
+	\frac{I_f}{I_i} = \mathrm{e} ^ {-\alpha C Z}
+\label{eq:6}
+\end{equation}
+  Es posible modificar esta ecuación para que sea más sencillo su uso, sin perder capacidad analítica.
+  Para ello, introduciremos dos definiciones.
+  La primera de ella es transmitancia $T$, que es la fracción de la intensidad del haz de luz que se observa luego de que atraviese el material, $T = \frac{I_f}{I_i}$. 
+  La segunda, es la absorbancia que se define como: $A = -\log_{10}{T} = -\frac{\ln{T}}{2.303}  $. En la figura \ref{fig:TvsA}
+  
+
+\begin{eqnarray}
+	A & = & - \log_{10}{T} = - \frac{\ln{T}}{2.303}\\
+	A & = & - \frac{\ln{\frac{I_f}{I_i}}}{2.303} = \frac{\sigma N Z}{2.303} \\ 
+	A & = & \frac{\alpha C Z}{2.303} \\
+	A & = & \frac{\alpha}{2.303} C Z \\
+	A & = & \epsilon C Z 
+\label{eq:7}
+\end{eqnarray}
+
+Finalmente, hemos derivado la ecuación de Lambert \& Beer. 
+La cual relaciona a la aborbancia con una constante $\epsilon$ que solo depende de propiedades intrínsecas del compuesto, con la concentración $C$ y con la longitud del camino óptico $Z$.
+El valor $\epsilon$ se encuentra tabulado para muchos compuestos y se llama coeficiente de extinción molar.
+
+\begin{figure}[!ht]
+	\centering
+		\includegraphics[width=100mm]{Absorbance_Vs_Transmitance.pdf}
+	\caption{Transmitancia vs. Absorbancia.}
+	\label{fig:TvsA}
+\end{figure}
+
+En el laboratorio es posible medir la absorbancia de una solución con un instrumento llamado espectrofotómetro.
+En un espectrofotómetro, la longitud del camino óptico, $Z$, es constante y suele ser de 1 cm en la mayoría de los casos.
+De esta manera, es muy sencillo medir la concentración soluciones de compuestos que absorben luz.
+
+En resumen, un espectrofotómetro hace incidir un haz de luz de intensidad conocida $I_i$ sobre una cubeta de tamaño conocido (generalmente de 1 cm de espesor, $Z$) donde se deposita la solución que se desea medir. 
+Del otro lado, se mide la intensidad del haz que atravesó la cubeta con un sensor. Con estos datos es posible calcular la transmitancia y la absorbancia, y son estos los valores que el usuario lee del equipo.
+
+	
+	\begin{figure}[!ht]
+	\centering
+		\includegraphics[width=100mm]{CopperSulphateSpectrum.jpg}
+	\caption{Espectro del sulfato de cobre a diferentes concentraciones.}
+	\label{fig:Spectrum}
+\end{figure}
+  
+   \section{Medición de la D.O. a diferentes concentraciones}
+   	Preparar 50 ml de una solución 1M de CuSO$_{4}$ y por dilución 5 ml de soluciones 0.5M, 0,45M \ldots 0.1M y 0.05M.
+   	Medir la absorbancia a 700 nm de cada una de ellas.
+   	\begin{itemize}
+   		\item Construir una curva de absorbancia vs. concentración.
+   		\item Calcular la recta de regresión en el rango útil de concentración.
+ 		\end{itemize}
+  	
+  \section{Construcción de un espectro de absorción}
+	  El coeficiente de absorción molar para el mismo compuesto es diferentes a distintas longitudes de onda. Si a una muestra se
+		le mide aborbancia varias veces, cambiando entre cada medida la longitud de onda, será posible construir una gráfico de Absorbancia Vs $\lambda$ (longitud de onda). Este gráfico se llama espectro de absorción.
+		
+		En esta sección del trabao práctico se construirá un espectro de absorción para el compuesto DCPIP. Para ello, se debe preparar 50 ml de una solución 0.05 mg/ml de diclorofenolindofenol (DCPIP) en buffer fosfato pH 6 50 mM. Luego se medirá la D.O. desde 400nm a 700nm cada 20nm. Muchos espectrofotómetros pueden realizar esta tarea automáticamente, variando $\lambda$ 2nm o menos entre cada medición. La absorbancia DCPIP varía también con el pH del medio. Por ello, es conveniente disolverlo en un \textit{buffer} adecuado.
+		
+    \begin{itemize}
+			\item ¿Cuál es la región de mayor absorbancia?
+			\item ¿A qué color corresponde?
+			\item ¿por qué la solución se ve del color que se ve?
+			% El valor de referencia de E para DCPIP a ph 6 es 16,9 M-1cm-1.
+			% Extraído de :
+			% van der Werf, MJ, van der Ven, C, Barbirato, F, Eppink, MH, de Bont, JA, van Berkel, WJ (1999). Stereoselective carveol dehydrogenase from Rhodococcus erythropolis DCL14. 
+			% A novel nicotinoprotein belonging to the short chain dehydrogenase/reductase superfamily. J. Biol. Chem., 274, 37:26296-304.
+		\end{itemize}
+		
+  \section{Cálculo del coeficiente de extinción molar del DCPIP}
+    Proponer una metodología experimental para estimar el valor $\epsilon$ del DCPIP a pH 6. 
+    Calcular el coeficiente de extinción molar para este compuesto a 600nm (expresarlo en las unidades $M^{-1}cm^{-1}$).
+    Para obtener un valor de referencia leer el trabajo de \citet{vanderWerf:1999}.
+    
+    
+
+	%\section{Informe de laboratorio}
+		%Cada alumno deberá redactar un informe de las tareas que se llevaron a cabo en este trabajo práctico.
+		%El informe deberá contener un título descriptivo (no se acepta 'TP 2' como título), el nombre del autor, filicación y las siguientes secciones.
+		%\begin{description}
+			%\item[Resumen] Es una breve exposición, de no más de 200 palabras, de todo el trabajo. Usualmente, contiene una descripción del problema planteado y los resultados más generales.
+		  %\item[Introducción] En la introducción se desarrolla el marco teórico necesario para abordar la lectura del trabajo. Para este informe en particular debería incluirse los conceptos básicos sobre fotometría, propiedades de la luz, la ecuación de Lambert y Beer. Cabe aclarar, que no debe ser un listado y descripción de cada concepto, sino una redacción que los una a todos en una única línea de pensamiento.
+			%\item[Métodos, resultados y discusión] Los trabajos científicos suelen contener una sección dedicada a los métodos, otra a los resultado y otra a la discusión. El informe de este trabajo práctico es un primer acercamiento a la escritura de trabajos en formato de publicación científica, por ello haremos una simplificación y condensaremos estas tres secciones en una. Debajo se enumeran los lineamientos para la redacción del trabajo.
+			%\item[Referencias] En caso de citar otros trabajos o libros, deberá detallarse la fuente de información con una llamada en el lugar necesario en cuerpo del texto y con la cita completa en esta sección. 
+			%\begin{enumerate}
+				%\item Deberá contener dos subsecciones, cada una correspondiente a una sección del trabajo práctico.
+				%\item Se deberá describir con precisión y en un estilo formal las tareas llevadas a cabo en el trabajo práctico, teniendo en cuenta que lo realizado en el laboratorio puede diferir de lo que se encuentra escrito en esta guía. 
+				%\item Deberá incluir los cálculos para estimar las concentraciones de todas las soluciones preparadas.
+				%\item Es recomendable utilizar figuras o tablas para representar información que puede ser abundante o difícil de organizar de otra forma.
+			%\end{enumerate}
+		%\end{description}
+%Como regla general, siempre asuma que el lector de este informe no es docente de la asignatura y que por lo tanto no tiene conocimiento de lo que se hizo en el laboratorio, ni que dispone de una copia de esta guía. Este hipotético lector debería ser capaz comprender el trabajo y replicarlo en otro laboratorio sin otra fuente de datos más que el informe. No hay restricción en la longitud del informe, pero trate de ser conciso y no extenderse innecesariamente.
+
+  \section{Reactivos y materiales}
+  \begin{itemize}
+		\item Pipetas p1000, p200 y p20.
+		\item Tips p1000, p200/p20.
+		\item Agua destilada.
+		\item Balanza analítica.
+		\item Papel absorbente común.
+		\item CuSO$_4$ sólido (PM, pentahidratado: 249.68 g/mol, anhidro: 159,6 g/mol).
+		\item Matraces de 100ml, 50 ml y 20ml.
+		\item pH-metro.
+		\item Diclorofenolindofenol (DPCIP)
+		\item Fosfato monobásico de sodio (PM, dihidratado: 156.01 g/mol, anhidro: 119.98 g/mol).
+		\item Fosfato dibásico de sodio (PM, dodecahidratado: 358.17 g/mol, anhidro: 141.96 g/mol).
+		\item Espectrofotómetro.
+		\item Cubetas plásticas.
+		\item Tubos de ensayos.
+		\item Vasos de precipitado.
+		\item Espátulas.
+		\item Embudo.
+	\end{itemize}
+
+  \bibliography{citas}
+  
+\end{document}
+  

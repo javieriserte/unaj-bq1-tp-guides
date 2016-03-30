@@ -1,0 +1,139 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+%\usepackage{boolexpr}
+\usepackage{datetime}
+\usepackage{hyperref}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 18cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 25.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin -1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin -1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10 pt									% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Bioquímica I}				                                                % Guardo el nombre de la asignatura.
+\newcommand{\seminarioName}{Trabajo Práctico N° 6 - Actividad óptica}    % Guardo el nombre de la guía de ejercicios.
+\newcommand{\fecha}{\ddmmyyyydate\today}                                          % Guardo la fecha.
+\newcommand{\titulo}{																										       	% Para hacer el Título como me gusta
+	\begin{center}																												        % Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\										              % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}																													  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}							% Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+
+  \section{Conceptos generales}
+	
+  \subsection{Actividad óptica}
+	La luz polarizada es el concepto básico en el cual se basa la determinación de la actividad óptica.
+	El modelo físico más extendido para explicar el fenómeno de la luz es que esta consiste en ondas que oscilan en un
+	campo electromagnético, es decir un campo eléctrico y uno magnético que se encuentran en planos perpendiculares.
+	Diferentes haces de luz, aunque sean emitidos por la misma fuente y su direccion sea paralela, no oscilan en campo magnéticos (o eléctricos) paralelos. En cambio, en la luz polarizada los haces oscilan en campos paralelos. Para obtener un haz de luz polarizada se usa un filtro que transmite solamente haces de luz en un plano y refleja los demás.
+	
+	Cuando la luz polarizada atraviesa un compuesto quiral, como por ejemplo el L-gliceraldehido, se produce un cambio en el ángulo del plano magnético de la oscilación. Si el compuesto hubiese sido D-gliceraldehido, el ángulo de rotación es el mismo, pero en el sentido contrario.
+	Si los dos estereoisómeros se encuentran en la misma concentración, ambos efectos se cancelan entre si y no hay cambio en el plano de polarización de la luz. Los compuestos que son capaces de alterar el ángulo de oscilación de la luz polarizada se denominan
+	ópticamente activos.
+	
+	La rotación específica es una propiedad que cuantifica la capadidad de rotación de la luz polarizada de un compuesto ópticamente activo. La rotación específica se define como:
+	
+	
+	\begin{equation}
+[\alpha]_D^T = \frac{\theta}{l \times [c]}
+	\end{equation}
+	
+	Donde, $\theta$ es el ángulo de rotación medido experimentalmente, $[c]$ es la concentración del compuesto a medir, $l$ es la longitud del camino óptico, $D$ es la longitud de onda de la luz polatizada utilizada y $T$ es la temperatura. $D$ usualmente corresponde a longitud de onda de la línea $D^*$ del sodio ($\approx  589 nm$). La temperatura es usualmente 25$^o C$.
+	
+  \subsection{Polarímetro}
+	El instrumento de laboratorio que se utiliza para medir la rotación específica de un compuesto es el polarímetro. En la figura \ref{} se muestra un esquema de un polarímetro. Esencialmente, consiste de una fuente de luz que se polarizad luego de atravesar un filtro polarizador. La luz polarizada, pasa a través de la una cámara llena de una solución del compuesto a analizar. Los haces de luz que dejan la cámara están rotados con respecto a los que entraron a ella. Los haces atravisan un segundo filtro polarizador, el cual es móvil y permite cambiar el ángulo de rotación. En la posición inicial, el ángulo de ambos filtro polarizadores es el mismo. De esta forma, la luz transmitida por el segundo filtro es de intensidad máximo. Cuando se introduce un compuesto ópticamente activo en la cámara, el haz de luz esta rotado la intesidad de luz transmitida por el segundo filtro disminuye. El usuario del instrumento, debe rotar el ángulo del segundo filtro para que este coincida con el plano de rotación de la luz polarizada hasta que la intensidad sea máxima (también puede leerse el valor cuando la intensidad es la mínima).
+
+  \section{Determinación de activiad óptica de dextrosa}
+
+  \section{Uso de la actividad óptica para la determinación de la concentración de dextrosa}
+
+  \section{Cambio en la actividad óptica por la hidrólisis de sacarosa}
+	
+\end{document}
+  

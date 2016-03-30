@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Wed Mar 30 10:19:29 ART 2016
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=TP01.Buffers.tex
+outputFile=tps-bq1.pdf
+langSpell=es
+markDer=true
+srcDir=

@@ -1,0 +1,129 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+\usepackage{boolexpr}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%\textwidth 18cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+%\textheight 26.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+%\oddsidemargin -1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+%\evensidemargin -1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+%\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+%\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+%\headsep 0cm										% Declaraciones para cambiar el tamaño del área de texto para usar
+%\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Bioquímica I}				                                                % Guardo el nombre de la asignatura.
+\newcommand{\seminarioName}{Trabajo Práctico N°9 - Purificación de proteínas por cromatografía}    % Guardo el nombre de la guía de ejercicios.
+\newcommand{\fecha}{Diciembre de 2012}                                          % Guardo la fecha.
+\newcommand{\titulo}{																										       	% Para hacer el Título como me gusta
+	\begin{center}																												        % Para hacer el Título como me gusta
+	\vspace*{-12pt}\large\textbf{\materiaName}\\										              % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}																													  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}							% Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+  
+  \section{Protocolo de purificación en columna de niquel}
+  
+  \begin{itemize}
+		\item Obtener un lisado 
+	\end{itemize}
+
+  \section{Protocolo de purificación por exclusión}
+  
+  \section{Protocolo de purificación por intercambio iónico}
+  
+  \begin{itemize}
+		\item pI lisozima : 11
+		\item pI BSA      : 4.7
+	\end{itemize}
+
+  \section{Reactivos y materiales}
+  
+  \begin{itemize}
+		\item 
+	\end{itemize}
+	
+	
+\end{document}
+  

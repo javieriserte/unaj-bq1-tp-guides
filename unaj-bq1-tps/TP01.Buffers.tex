@@ -1,0 +1,319 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{prelude}
+\newcommand{\seminarioName}{Trabajo Práctico N° 1 - Preparación de soluciones \textit{buffer}} 
+\newcommand{\imgfolder}{images_tp01/}
+
+\begin{document}
+  \titulo
+
+		
+  \section{Preparación de buffers}
+    \begin{description}
+    %	\item[Solución fisiológica, NaCl 0.9\% p/v] Preparar 50 ml de la solución pesando la cantidad necesaria de NaCl y disolviendola en agua destilada.
+    	% Masa de cloruro de sodio necesaria: 0.9 gr / 100 ml * 50 ml = 0.9 gr /2 = 0.45 gr.
+    	% Se pueden preparar varias de estas soluciones.
+			\item[Buffer Tris-HCl 100mM pH 8.0] Preparar 100 ml de la solución usando 
+			como material de partida Tris (tris(hi\-dro\-xi\-me\-til)amino-metano, 
+			pKa 8.07) y HCl 500 mM. Se disuelve la cantidad necesaria de Tris en un 
+			volumen de agua destilada menor al final. Se mide el pH con el pH-metro 
+			y se lo corrige agregando pequeños volúmenes de HCl. Luego se completa 
+			hasta el volumen final con agua destilada.
+		  \begin{enumerate}
+		    \item ¿Cuáles son las estructuras del Tris base y su ácido conjugado?
+		    \item ¿Cuál es el pH de la solución de Tris antes de agregar el ácido?
+		    \item Calcular el volumen estimado de HCl necesario.
+		  \end{enumerate}
+			% Masa de Tris necesaria: 100 mmol / 1000 ml * 121.14 mg / mmol * 100 ml = 600 mg.
+      % Volumen de ácido clorhídrico: 
+      %          TrisH+ <-> Tris + H+     pKa = 8.3
+      %  1)        -        50mM   -
+      %  2)        X       50mM-X 10^-8M 
+      %
+      %  [10^(-8.3)] = [10^-8] * [0.05-X] / X 
+      %  [10^(-8.3)] / [10^-8] * X = 0.05 - X
+      %  0.05 * X = 0.05 - X
+      %  1.05 * X = 0.05
+      %  X = 0.05 / 1.05 = 0.0475 M H+
+      % 
+      % 47,5 mmol / 1000 ml * 100 ml = 4,75 mmol 
+      % 4,75 mmol * 36 mg / mmol / ( 36000 mg / 100 ml ) = 0.475 ml
+      % 
+		\item[\textit{Buffer} fosfato de sodio 50mM pH 7.0] Preparar 100ml de 
+		soluciones 50mM de fosfato monobásico de sodio y fosfato dibásico de sodio,
+		 sin ajustar el pH. Tomar 50ml de la solución de fosfato monobásico de sodio
+		  y adicionar la otra solución de a poco, hasta que el pH sea 7. El pH se 
+		  controla con un pH-metro.
+      \begin{enumerate}
+        \item ¿Cúal espera que sea el pH de cada solución inicial?
+        \item ¿Qué relación de volumenes espera utilizar de ambas soluciones?
+      \end{enumerate}		  
+					
+		\item[\textit{Buffer} fosfato de sodio 100mM pH 7.0] Preparar 100 ml de la
+		solución usando como material de partida fosfato monobásico de sodio 
+		($NaH_2PO_4$) y fosfato dibásico $Na_2HPO_4$ de sodio puros. 
+	   Calcular según la ecuación de Henderson \& Hasselbalch, 
+      (ecuación \ref{eq:hh}), la cantidad necesaria de cada una de las drogas.
+      El pKa para la reacción es: 6.82. Corroborar el pH midiéndolo con el 
+      pH-metro.
+      \begin{enumerate}
+        \item ¿Por qué este método de preparación funciona?
+        \item ¿Funcionaría para cualquier buffer?
+      \end{enumerate}     
+
+			% Masa de cada fosfato necesaria
+			% ph = pKa + log10 HPO4 / H2PO4
+			% 7 = 6.82 + log10 HPO4 / H2PO4
+			% 0.18 = log10 HPO4 / H2PO4
+			% 10^(0.18) = HPO4 / H2PO4
+			% 1.51 H2PO4 = HPO4
+			% 1.51 H2PO4 = (0.1M - H2PO4 )
+			% 2.51 H2PO4 = 0.1M
+			% H2PO4 = 0.1 M / 2.51
+			% H2PO4 = 0.040 M => HPO4 = 0.06 M
+			% H2PO4 = 0.040 mol/1000ml * 100 ml * 120 gr / mol = 0.48 gr
+			% HPO4 = 0.06 mol/1000ml *100 ml *142 gr /mol = 0.85 gr
+
+				\begin{equation}
+					pH = pK_a + \log_{10}\left( \frac{aceptor}{donor} \right)
+					\label{eq:hh}
+				\end{equation}
+
+%			\item[Na$^+$ 0.2 M / acetato 0.3 M] Preparar 100 ml de esta solución pesando la cantidad necesaria de acetato de sodio. 
+%			Completar la cantidad requerida de acetato con ácido acétido glacial.
+
+		\end{description}
+
+    \section{Uso de micropipetas}
+    \subsection{Descripción}
+    Las micropipetas automáticas son equipos de laboratorio destinados a la 
+    medición de pequeños volúmenes de líquido. Su propósito, en general, es 
+    medir un volumen arbitrario de manera rápida, con gran exactitud y 
+    precisión. Son de particular utilidad para la medición repetida de un mismo 
+    volumen, por ejemplo en la preparación de diluciones en serie. La mayor 
+    parte de las micropipetas contienen de las mismas partes, que se detallan 
+    en la figura \ref{fig:desc_pipet}. Las pipetas pueden clasificarse y 
+    nombrarse por el volumen máximo que pueden medir. De esta forma, las 
+    pipetas que miden hasta 20 $\mu$l se las llama p20, hasta 200 $\mu$l
+    p200, etc. 
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=5cm]{\imgfolder DescripcionPipeta.pdf}
+	\caption{Partes más importantes de una micropipeta}
+	\label{fig:desc_pipet}
+\end{figure}
+
+    \begin{description}
+	    \item[A] Botón de expulsión de líquido (Comúnmente contiene un código 
+	    coloreado que indica el modelo de pipeta).
+	    \item[B] Cuerpo o asa.
+	    \item[C] Dial de selección del volumen.
+	    \item[D] Visor del volumen seleccionado, indica las tres cifras más
+	    significativas.
+	    \item[E] Ejector de tips.
+	    \item[F] Botón de ejección de tips.
+	    \item[G] Vástago.
+    \end{description}
+    
+    \subsection{Consejos para pipetear correctamente}
+    \begin{itemize}
+	    \item Ajustar el \textit{tip} al vástago de la micropipeta con un leve 
+	    giro. No conviene presionar la pipeta sobre el tip. Esto puede fracturar
+	    la punta del vástago o deformarlo, sobre todo en pipetas para pequeños 
+	    volúmenes.
+	    \item Al medir cualquier líquido queda retenida una película sobre las
+	    paredes internas del \textit{tip}. Para evitar que esto afecte la medición
+	    conviene tomar el líquido y liberarlo inmediatamente en el mismo 
+	    recipiente o en un descarte. Luego se puede tomar la muestra sin cambiar
+	    el \textit{tip}.
+	    \item Al aspirar, se debe seleccionar el volumen deseado, presionar el
+	    botón de expulsión hasta el primer \textit{stop}. Sumergir el \textit{tip}
+	    en la solución de forma vertical. Llevar el botón de expulsión hasta la 
+	    posición inicial de forma suave y guiado por el dedo pulgar (nunca 
+	    soltarlo para que este vuelva solo a la posición inicial). Cuando se 
+	    aspira se debe mantener la punta del \textit{tip} a una profundidad 
+	    constante debajo de la superficie del líquido, y esperar un breve tiempo
+	    antes de retirar el \textit{tip}. Cada pipeta posee un rango adecuado 
+	    para medir, no se debe ir más allá de los límites. Los riesgos varían
+	    según el modelo y marca de pipeta, van desde la descalibración hasta 
+	    la rotura del mecanismo. La profundidad a la que se debe sumergir el
+	    \textit{tip} para aspirar no debe ser excesiva, ya que queda líquido
+	    retenido en la superfice exterior adicional al medido. Para más 
+	    detalles conviene consultar la tabla \ref{tab:micro_desc}.
+    
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{cccc}
+Modelo     & Rango       & Profundidad de Inmersión & Tiempo de espera \\ \hline
+P2         & 0,1 - 2     & 1      & 1     \\
+P10        & 0,5 - 10    & 1      & 1     \\
+P20        & 2 - 10      & 2 - 3  & 1     \\
+P100       & 20 - 100    & 2 - 4  & 1     \\
+P200       & 20 - 200    & 2 - 4  & 1     \\
+P1000      & 200 - 1000  & 2 - 4  & 2 - 3 
+		\end{tabular}
+	\caption{Rango, profundidad de inmersión y tiempo de espera para los 
+	diferentes modelos de micropipetas autmáticas, de acuerdo a las 
+	especificaciones del manual de usuario de Gilson.}
+	\label{tab:micro_desc}
+\end{table}
+
+\item Para expulsar el líquido se debe ubicar la pipeta en un ángulo entre 10 y
+45 grados a la pared del tubo. Presionar suavemente el botón de expulsión hasta
+el primer stop y mantenerlo así uno o dos segundos. Luego, si quedan gotas en la
+ punta del \textit{tip}, presionar suavemente hasta el segundo stop. Si es 
+ posible, es conveniente descargar el líquido sobre una superficie líquida, esto
+ ayuda a prevenir la formación de gotas en la punta del \textit{tip}.
+
+\item Una vez que ya se descargó el líquido, presionando el botón de expulsión 
+hasta el primer o segundo \textit{stop}, presionar el botón de expulsión del 
+\textit{tip} sin liberar el botón de expulsión de líquido. Esto ayuda a prevenir
+la formación de aerosoles.
+
+	\item Operar el botón de expulsión de líquido de forma lenta.
+	\item Cambiar el \textit{tip} cuando se aspire un nuevo líquido. También se
+	debe cambiar el \textit{tip} si hay contacto entre el \textit{tip} y una 
+	superficie líquida diferente al material de partida al expulsar el líquido.
+	\item Se puede mantener el mismo tip para pipetear varias veces la misma
+	muestra y depositarlas sin contacto con otro líquido. En este caso conviene
+	no soltar el botón de expulsión luego de haber liberado el líquido 
+	(presionando hasta el primer \textit{stop}). Manteniendo el botón presionado
+	se debe llevar la pipeta nuevamente al tubo con la muestra y recién en ese 
+	instante liberar el botón de expulsión para aspirar nuevamente. Esto reduce
+	la produción de aerosoles que son la principal fuente de contaminación.
+  \item Cambiar el tip si queda una gota en la punta del pipeteo previo.
+  \item El líquido nunca debe entrar en el vástago.
+  \item Si se pipetean muestras cuya temperatura es diferente a la temperatura
+  ambiente de debe tomar la muestra y soltarla (en el mismo recipiente o 
+  descartarla) para equilibrar la cámara de aire que queda dentro de la pipeta.
+  \item Si se pipetean soluciones de solventes volátiles se debe saturar la
+  cámara de aire aspirando y liberando el solvente repetidas veces.
+  \item No usar micropipetas para medir líquídos y soluciones corrosivas, por
+  ejemplo ácidos fuertes concentrados.
+\end{itemize}
+
+\subsection{Trabajo en esterilidad con pipetas automáticas}
+La forma más sencilla de evitar contaminaciones usando pipetas automáticas, es
+el uso de \textit{tips} con filtro. Sin embargo, muchas veces no tendremos 
+acceso a ellos. En este caso una buena técnica de trabajo puede minimizar las
+contaminaciones.
+
+Siempre es conveniente minimizar la generación de aerosoles y movimientos de
+aire dentro de la pipeta. Se debe monipular el botón de expulsión de forma
+lenta y suave. Evitar aspirar y expulsar una muestra repetidas veces. Cuando se
+esté tomando una muestra esteril que se encuentre en una frasco grande no se 
+debe introducir el vástago de la pipeta dentro del frasco. Si la altura del 
+líquido no es suficiente para alcanzarlo solo con el \textit{top} conviene 
+inclinar un poco el frasco, o verter parte de la muestra en otro recipiente
+esteril más pequeño.
+    
+%     \section{Corroboración de la calidad de la medida}
+% 		En esta sección del trabajo práctico se analizará la calidad de las mediciones realizadas con las micropipetas disponibles. Cada micropipeta esta diseñanada para medir un volumen deseado de un líquido dentro de un rango. Fuera de ese rango las mediciones pierden precisión y el equipo puede dañarse.
+% 		
+% 		
+% 		En este trabajo práctico se utilizará una pipeta p1000, una de las habituales en los laboratorio modernos de bioquímica y biología molecular. Se medirá diez veces el volumen máximo permitido de esta micropipeta de agua destilada, luego será descargado en un tubo de 1.5 ml y se pesará en una balanza. 
+% 		
+% 		Para este conjunto de datos, se calculará su valor medio ($\bar{X}$) y su desviación estándar $\sigma$. Estos dos datos nos darán una descripción de la precisión y exactitud del conjunto de datos (en la figura \ref{fig:Exac} se muestra un ejemplo de estos conceptos). En particular, la diferencia entre el valor medio y el valor de referencia tomado como 'verdadero' describe la exactitud de las medidas; y la desviación estándar describe la precisión, es decir la repetibilidad, y reproducibilidad, que existe entre los diferentes valores obtenidos para la misma medición.
+% 		
+%   	\begin{description}
+% 			\item[Media ($\bar{X}$)] Se calcula como la suma de todos los valores, dividida por la cantidad de muestras.
+% 			\begin{equation}
+% 					\bar{X} = \frac{\sum_{i=1}^{n}X_{i}}{n}
+% 			\label{eq:1}
+% 			\end{equation}% 			\item[Desviación estándar ($\sigma$)] Se calcula De la siguiente forma:
+% 			\begin{equation}
+% 					\sigma = \sqrt{\frac{\sum_{i=1}^{n}(X_{i}-\bar{X})^2}{n}}
+% 			\label{eq:2}
+% 			\end{equation}
+% 		\end{description}
+% 		
+% 		
+% \begin{figure}[h]
+% 	\centering
+% 		\includegraphics{\imgfolder Exacb.pdf}
+% 	\caption{En el cuadro A, las mediciones son precisas y exactas. En el cuadro B, son exactas pero no son precisas. En el cuadro C, son precisas pero no exactas y en el cuadro D no son ni exactas ni precisas.}
+% 	\label{fig:Exac}
+% \end{figure}
+% % Buscar la tabla de errores del manual de Gilson.
+%   
+%   \section{Diluciones seriadas}
+%  		Es muy común que en el laboratorio sea necesario preparar soluciones muy diluidas de alguna droga. En esos casos, no es práctico preparar la solución pesando la droga y disolviendola en el solvente adecuado, ya que la masa necesaria es tán pequeña que no es posible medirla. Para evitar este inconveniente se llega a la concentración deseada a partir de diluciones en serie de una solución más concentrada. Como ejemplo, supongamos que se desea obtener 5 ml de una solución $10^{-7}$ molar de glucosa. ¿Cuál sería esta masa?, ¿Es posible medirla?
+%  		Una forma alternativa es preparar una solución más concentrada: 0.1 M. Si tomamos un volumen (para este ejemplo, 0.5 ml) de esta solución y la mezclamos con 9 volúmenes de agua (4.5 ml) obtendremos 10 volúmenes (5 ml) de una solución de glucosa 10 veces menos concetrada que la original (0.01 M ó $10^{-2}$ M). La notación usual para describir este tipo de diluciones es 1/10, donde el primer número indica la cantidad de volúmenes a tomar y el segundo la cantidad de volúmenes final de la solución. Si repetimos esta dilución 1/10 cinco veces más obtendremos soluciones $10^{-3}$ M, $10^{-4}$ M, $10^{-5}$ M, $10^{-6}$ M y $10^{-7}$ M. Esta última es la que deseamos obtener al inicio.
+% 	  \begin{itemize}
+% 			\item Preparar 50ml de una solución 1 molar de CuSO$_4$. 
+% 			\item Realizar cinco diluciones en serie 1/10. 
+% 			\item Realizar cinco diluciones en serie 1/5. 
+% 			\item Realizar cinco diluciones en serie 1/2. 
+% 			\item Calcular para cada una de estas soluciones la concentración molar y en gr/l.
+% 		\end{itemize}
+		
+%	\section{Informe de laboratorio}
+%		Cada alumno deberá redactar un informe de las tareas que se llevaron a cabo en este trabajo práctico.
+%		El informe deberá contener un título descriptivo (no se acepta 'TP 1' como título), el nombre del autor, filicación y las siguientes secciones.
+%		\begin{description}
+%			\item[Resumen] Es una breve exposición, de no más de 200 palabras, de todo el trabajo. Usualmente, contiene una descripción del problema planteado y los resultados más generales.
+%		  \item[Introducción] En la introducción se desarrolla el marco teórico necesario para abordar la lectura del trabajo. Para este informe en particular debería incluirse, al menos, los conceptos más elementales sobre soluciones, diluciones seriadas, pH, desarrollo de la ecuación de Henderson y Hasselbach. Como así también, los conceptos de media y desviación estándar. Cabe aclarar, que no debe ser un listado y descripción de cada concepto, sino una redacción que los una a todos en una única línea de pensamiento.
+%			\item[Métodos, resultados y discusión] Los trabajos científicos suelen contener una sección dedicada a los métodos, otra a los resultado y otra a la discusión. El informe de este trabajo práctico es un primer acercamiento a la escritura de trabajos en formato de publicación científica, por ello haremos una simplificación y condensaremos estas tres secciones en una. Debajo se enumeran los lineamientos para la redacción del trabajo.
+%			\item[Referencias] En caso de citar otros trabajos o libros, deberá detallarse la fuente de información con una llamada en el lugar necesario en cuerpo del texto y con la cita completa en esta sección. 
+%			\begin{enumerate}
+%				\item Deberá contener tres subsecciones, cada una correspondiente a una sección del trabajo práctico.
+%				\item Se deberá describir con precisión y en un estilo formal las tareas llevadas a cabo en el trabajo práctico, teniendo en cuenta que lo realizado en el laboratorio puede diferir de lo que se encuentra escrito en esta guía. 
+%				\item Deberá incluir los cálculos para estimar las concentraciones de todas las soluciones preparadas.
+%				\item Es recomendable utilizar figuras o tablas para representar información que puede ser abundante o difícil de organizar de otra forma.
+%			\end{enumerate}
+%		\end{description}
+%Como regla general, siempre asuma que el lector de este informe no es docente de la asignatura y que por lo tanto no tiene conocimiento de lo que se hizo en el laboratorio, ni que dispone de una copia de esta guía. Este hipotético lector debería ser capaz comprender el trabajo y replicarlo en otro laboratorio sin otra fuente de datos más que el informe. No hay restricción en la longitud del informe, pero trate de ser conciso y no extenderse innecesariamente.
+%
+%La entrega del informe tiene como fecha límite dos semanas después de su finalización. Se prefiere que sea elaborado con un procesador de texto y entregado de forma impresa. En caso de no tener disponibilidad de una PC para la elaboración del trabajo se lo aceptará escrito a mano. La entrega fuera de término implicará una penalización en la calificación del trabajo.
+  \section{Reactivos y materiales}
+		\begin{multicols}{3}
+			\begin{itemize}
+				\item Pipetas p1000, p200 y p20.
+				\item Tips p1000, p200/p20.
+				\item Agua destilada. 
+				\item Balanza analítica.
+				\item Papel absorbente común.
+				\item Tris base, droga sólida.
+				\item HCl concentrado.
+				\item Na$_2$HPO$_4$ y NaH$_2$PO$_4$ sólidos.
+				\item Acetato de sodio sólido y ácido acético glacial.
+				\item CuSO$_4$ sólido.
+				\item Matraces de 100ml, 50ml y 20ml.
+				\item Erlenmeyer de 125ml y 250 ml.
+				\item pH-metro.
+				%\item Espectrofotómetro.
+				%\item Cintas para medir pH.
+				\item Tubos de ensayos eppendorf.
+				\item Pipetas pasteur.
+				\item Espátulas para pesar.
+				\item Pisetas.
+				\item Probetas de 100 ml.
+			\end{itemize}
+		\end{multicols}
+\end{document}

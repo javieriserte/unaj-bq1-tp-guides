@@ -1,0 +1,259 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+%\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+\usepackage{boolexpr}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 18cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 25.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin -1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin -1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10pt										% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Bioquímica I}				                                                % Guardo el nombre de la asignatura.
+\newcommand{\seminarioName}{Trabajo Práctico N° 6 - Cuantificación de proteínas}    % Guardo el nombre de la guía de ejercicios.
+\newcommand{\fecha}{Octubre de 2014}                                          % Guardo la fecha.
+\newcommand{\titulo}{																										       	% Para hacer el Título como me gusta
+	\begin{center}																												        % Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\										              % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}																													  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}							% Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+  
+ 	\section{Curva de calibración de proteínas}
+ 	En los ensayos que se realizarán se utilizarán curvas de concentración conocida de la proteína BSA (seroalbumina bovina).
+	Por ello, como primer paso se prepararán 10 ml de una solución \textit{stock} de concentración aproximada de 1 mg/ml de BSA en \textit{buffer} fosfato 10 mM pH 7.
+	Esta solución \textit{stock} se utilizará para construir los puntos de la curva necesaria en cada uno de los ensayos.
+ 	
+ 	\section{Fotometría U.V.}
+	Los aminoácidos triptofano, tirosina, fenilalanina y cisteína absorben luz en el rango ultravioleta. En su conjunto, provocan que las proteínas absorban luz U.V. con un pico máximo próximo a $\lambda$ = 280 nm. 
+	Es posible, por lo tanto, mediante un espectrofotómetro, medir la absorbancia a 280 nm de una solución proteica para estimar su concentración. Este es un método muy utilizado ya que es muy rápido, no destruye la muestra y no requiere de ningún reactivo adicional.
+	
+	Además, es posible la cuantificación absoluta de la concentración de una solución proteica si está se encuentra pura y su coeficiente de extinción molar es conocido. Gracias a esta característica, este método es utilizado frecuentemente para calibrar curvas patrones que serán utilizadas en otras técnicas de cuantificación proteica. El coeficiente de extinción molar es diferente para cada proteína. Si no se conoce, puede ser estimado aproximadamente por la ecuación \ref{eq:b_est}. 
+
+	\begin{equation}
+		b(M^{-1}cm^{-1}) = nW \times 5500 + nY \times 1490 + nC \times 125 (M^{-1}cm^{-1}) \\
+	\label{eq:b_est}
+	\end{equation}
+	
+	\begin{itemize}
+		\item donde...
+		\item nW = número de residuos de triptofano en la secuencia.
+		\item nY = número de residuos de tirosina en la secuencia.
+		\item nC = número de residuos de cisteína en la secuencia.
+	\end{itemize}
+	 
+	Las muestras de proteínas no purificadas suelen estar contaminadas con ácidos nucleicos entre otras moléculas, cuyo rango de absorbancia se solapa con el de las proteínas.
+	Sin embargo, es posible corregir el cálculo midiendo absorbancia a 260 nm. En la figura \ref{fig:DNA_Prot_Abs} se muestran solapados los espectros de absorción de una proteína y de un ácido nucleico.
+	
+	\begin{figure}[!hbt]%
+	\begin{center}
+	\includegraphics[width=7 cm]{DNA_Prot_Abs.png}%
+	\caption{Espectro de absorción para una proteína y para un ácido nucleico. Los valores en el eje Y están en unidades arbitrarias y son diferentes para ácidos nucleicos y proteínas.}%
+	\label{fig:DNA_Prot_Abs}%
+	\end{center}
+	\end{figure}
+
+	\subsection{Identificación de dos proteínas}
+	En esta sección del trabajo práctico se analizarán dos proteínas: la albúmina sérica bovina (BSA) y la lisozima del bactiófago T4.
+	La BSA es la proteína más abundante del suero de vacas, suele usarse para la preparación de solución estándar para la concentración de proteínas en el laboratorio.
+	La forma de la proteína que se sintetiza inicialmente, sufre varias modificaciones de manera tal que la forma madura de la proteína carece de los primeros 25 residuos.
+	La lisozima del bacteriófago T4 (conocida también como endolisina) es una proteína pequeña (tiene menos de 200 residuos) y cataliza la hidrólisis del enlace glicosídico 
+	entre un residuo del ácido N-acetil-murámico y uno de N-acetil-glucosamina del el peptidoglicano.
+
+	Una muestra de cada una de ellas será dada sin identificar.
+	El objetivo es distinguirlas midiendo la aborbancia de soluciones preparadas con ellas.
+	Además será necesario conocer los valores de algunas propiedades fisicoquímicas.
+	Estos valores pueden ser estimados teóricamente.
+	El servidor \textit{web} Protparam (http://web.expasy.org/protparam/) permite realizar estos cálculos a partir de la secuencia primaria de la proteína.
+	Para obtener la secuencia de ambas proteínas se puede consultar la base de datos Uniprot (http://www.uniprot.org).
+	
+	\subsection{Cuantificación de la curva de estandarización de BSA}
+	Se cuantificará la concentración del stock primario ($\approx$1 mg/ml) utilizado para construir las curvas de calibración midiendo absorbancia a 280 nm.
+        Si se conoce el coeficiente de extinción molar y el PM de la proteína, es posible estimar precisamente la absorbancia que debería tener la solución \textit{stock}
+	usando la ecuación de Lambert \& Beer.
+%	El coeficiente de extinción molar, a esa longitud de onda, de la BSA es 43824 M$^{-1}$cm$^{-1}$ y el PM es 66463 gr$\cdot$mol$^{-1}$.
+%	Si la concentración fuese exactamente 1 mg/ml, entonces la absorbancia que se debiera medir estaría calculada por:
+%	\begin{align*}
+%	abs_{280} &= a\cdot b\cdot c &\text{(ecuación de Lambert \& Beer)} \\
+%	          &= 43824 (M^{-1}cm^{-1})\cdot 1(cm)\cdot 1(g\cdot l^{-1}) &\\
+%	          &= 43824 (l\cdot mol^{-1}cm^{-1})\cdot 1 (cm)\cdot 1 (g\cdot l^{-1})  &\\
+%	          &= \frac{43824 (l\cdot mol^{-1}cm^{-1})}{66463(gr\cdot mol^{-1})}\cdot 1 (cm)\cdot 1 (g\cdot l^{-1})  &\\
+%	          &= 0.65937(l\cdot gr^{-1}cm^{-1})\cdot 1 (cm)\cdot 1 (g\cdot l^{-1})& \\
+%	          &= 0.65937
+%  \label{eq:}
+%	\end{align*}
+	
+	Teniendo estos datos en cuenta:
+	\begin{itemize}
+		\item Estime los valores del PM y del coeficiente de extinción molar para esta proteína.
+		\item Mida la absorbancia a 280 nm del stock primario.
+		\item Prepare diluciones al 80\%, 60\%, 40\%, 20\% del stock primario y mida la absorbancia a 280 nm de cada una de ellas.
+		\item Calcule la concentración corregida.
+	\end{itemize}
+	
+	\section{Cuantificación de proteínas por el método de Bradford}
+	El método de Bradford se basa en la interacción del colorante \emph{Coomasie Brilliant Blue G-250} con las proteínas.
+	Esta interacción produce un corrimiento de la longitud de onda del pico de absorción del colorante de 465 nm a 595 nm en soluciones ácidas.
+	La respuesta de la absorbancia con respecto a la cantidad de proteína no es lineal en un rango muy amplio, por ello, debe realizarse una curva de calibración en cada ocasión.
+	
+	\subsection{Preparación del reactivo de Bradford}
+		\begin{itemize}
+		\item Disolver 10 mg \emph{Coomassie Brilliant Blue G-250} en 5 ml etanol 95\% (v/v). 
+		\item Agregar 10 ml (p/v) ácido fosfórico 85\%.
+		\item Diluir a 100 ml cuando el colorante se disolvió por completo.
+		\item Finalmente se debe filtrar con papel Whatman \#1. 
+		Puede ser conveniente hacer un prefiltrado con un algodon o papel de 
+		filtro con poros de mayor tamaño. EL paso de filtrado es esencial para
+		que el reactivo de Bradford funcione correctamente.
+	\end{itemize}
+	
+	\subsection{Protocolo}
+	\begin{itemize}
+      \item Preparar en tubos de ensayo, 200 $\mu$l de muestras conteniendo entre 0$\mu$g, 10 $\mu$g, 20 $\mu$g, 30 $\mu$g y 40 $\mu$g y 50 $\mu$g de proteína.
+      \item Agregar a cada tubo 2 ml del reactivo de Bradford.
+      \item Mezclar e incubar durante 5 minutos.
+      \item Medir Absorbancia a 595 nm.
+	\end{itemize}
+	
+	Con estos datos, construir una curva de masa de BSA vs. absorbancia a 595 nm.
+	
+	\section{Método de Biuret}
+	El método de Biuret se basa en la capacidad del catión Cu$^{2+}$ en formar complejos con los átomos de nitrógeno del enlace peptídico (figura \ref{fig:biuret}). 
+	La coordinación de catión Cu$^{2+}$ en el complejo provoca que el pico máximo de absorción se desplace del azul propio del Cu$^{2+}$ a un color violáceo en una longitud de onda de 545 nm. Debido a que la absorción está estrechamente relacionada con el enlace peptídico, entonces, para una proteína dada solo depende de su tamaño y no de su composición, a diferencia de los métodos anteriores. En contra parte, este método tiene la desventaja de ser poco sensible, es decir que sólo es útil en concentraciones de proteínas mayores que los otros dos métodos. Hay otros métodos, basados en este que llegan a valores de sensibilidad mayores. Uno de los más conocidos es el método de Lowry.
+	
+	\begin{figure}[!hbt]%
+	\begin{center}
+	\includegraphics[width=6 cm]{Biuret_test.png}%
+	\caption{Polipéptidos acomplejando al un ion Cu$^{2+}$}%
+	\label{fig:biuret}%
+	\end{center}
+	\end{figure}
+	
+	\subsection{Preparación del reactivo de Biuret}
+	El reactivo de Biuret se prepara mezclando dos soluciones (A y B) en el momento del ensayo.
+	La soluciones A y B deben ser hechas previamente.
+	La receta de la solución A es:
+	\begin{itemize}
+		\item Pesar 0.9 g de tartrato doble de sodio y potasio, 0.3 g de CuSO$_{4}\cdot$5H$_{2}$O, 0.2 g de KI.
+		\item Disolver los reactivos en 2 ml de solución de 2 M de NaOH.
+		\item Llevar a 10 ml de volumen final con agua caliente.
+		\item La solución debe descartarse si se forma un precipitado negro.
+	\end{itemize}
+	La receta de la solución B es:
+	\begin{itemize}
+		\item Disolver 0.5 gr de KI 8 ml de solución de 2 M de NaOH.
+	\end{itemize}
+	Se debe mezclar 10 ml de la solución A con 8 ml de la solución B. Luego se 
+	diluye a 100 ml de volumen final.
+	
+	\subsection{Protocolo}
+	\begin{itemize}
+	  \item Preparar un \textit{stock} 1.5 ml de 20 mg/ml de BSA.
+	  \item Preparar en tubos de ensayo, 400 $\mu$l de muestras conteniendo entre 0 mg, 2 ,mg, 4 mg y 6 mg y 8 mg de BSA.
+      \item Agregar 1600 $\mu$l del reactivo de Biuret.
+      \item Mezclar y dejar reposar durante 20 minutos.
+      \item Leer absorbancia a 545 nm.
+      \item Usar la muestra sin proteína como blanco de lectura.
+	\end{itemize}	
+	
+  \section{Reactivos y materiales}
+  \begin{itemize}
+		\item Coomassie Brilliant Blue G-250
+		\item Ácido fosfórico concentrado (85\%)
+		\item Etanol 95\%.
+		\item BSA
+		\item NaOH
+		\item Espectrofotómetro
+		\item Tartrato de sodio y potasio.
+		\item Sulfato de Cobre.
+		\item Ioduro de potasio.
+		\item Cubetas de cuarzo
+		\item Papel Whatman \#1
+	\end{itemize}
+	
+\end{document}
+  

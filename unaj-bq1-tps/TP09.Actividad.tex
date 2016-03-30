@@ -1,0 +1,223 @@
+%% Based on a TeXnicCenter-Templat%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}            % Maneja Fuentes Sans Serif
+%\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 	  % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+%\usepackage{boolexpr}
+\usepackage{datetime}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 14cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 22.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin 1cm			  			% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin 1cm		  			% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -0.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10pt										% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\seminarioName}{Trabajo Práctico N° 9 - Actividad enzimática}    % Guardo el nombre de la guía de ejercicios.
+\newcommand{\materiaName}{Bioquímica I}				                                                % Guardo el nombre de la asignatura.
+\newcommand{\fecha}{\ddmmyyyydate\today}                                     % Guardo la fecha.
+\newcommand{\titulo}{																										       	% Para hacer el Título como me gusta
+	\begin{center}																												        % Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\										              % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}																													  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}							% Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+  
+  \section{Método de cuantificación de $\alpha$-amilasa}
+  La enzima $\alpha$-amilasa cataliza la hidrólisis de polisacáridos con uniones $\alpha 1\rightarrow 4$, dando como producto los monómeros correspondientes. 
+  Por lo tanto, el almidón y el glucógeno son sustratos de esta enzima.
+	La $\alpha$-amilasa es una metalo-enzima que requiere Ca$^{2+}$ para poder llevar a cabo la reacción.
+  Esta enzima puede obtenerse de diferentes orígenes, tubérculos, bacterias, hongos y animales. 
+  El ser humano posee dos isoformas de esta enzima, una de ellas presente en la saliva y la otra es producida por el páncreas.
+  
+  El $I_2$ es acomplejado por el almidón dando una coloración azul intensa \ref{fig:complex}. 
+  La $\alpha$-amilasa degrada el almidón y deshace el complejo, por ello la coloración azul se pierde.
+  De esta forma, es posible seguir la reacción en el tiempo midiendo espectrofotométricamente la disminución del color azul del complejo.
+  La longitud de onda de máxima abosrción del complejo es 620 nm.
+  
+  \begin{figure}[!h]%
+  	\begin{center}
+			\includegraphics[width=10cm]{images/complex_2.png}%
+			\caption{Estuctura del complejo almidón-Iodo}%
+			\label{fig:complex}%
+		\end{center}
+	\end{figure}
+  
+  \section{Protocolo general para la cuantificación de la actividad enzimática}
+  En un tubo de ensayo se agregan:
+  \begin{itemize}
+		\item 1.5 ml de buffer de reacción (buffer fostafo 50 mM, NaCl 10 mM, CaCl 1 mM a pH 7).
+		\item 50 $\mu l$ de una solución 1 \% de almidón en agua.
+		\item Se agregan 50 $\mu l$ de la solución de Lugol al 1\% (I$_2$ 1\%, KI 1\%).
+		\item se completa a 1.5 ml menos el volumen $\chi$ a testear del extracto enzimático con agua destilada.
+	\end{itemize}
+	Se agrega el extracto enzimático y se mide rápidamente absorbancia a 620 nm.
+	Se incuba a 37º\ C y se mide absorbancia a 620 nm cada 30 segundos durante 10 minutos.
+	
+%   \section{Normalización de la actividad enzimática}
+%   La actividad de la enzima de la muestra puede variar considerablemente dependiendo del método de extracción y del estado de de la materia prima. 
+%   Para poder llevar a cabo los ensayos requeridos es conveniente elegir un volumen de extracto que tenga una actividad enzimática en un rango que permita detectarla con sencillez. 
+%   
+%   \subsection{Protocolo de reacción}
+%   \begin{itemize}
+%   	\item Realizar un ensayo de cuantificación enzimática variando el volumen agregado del extracto enzimático: 25 $\mu l$, 50 $\mu l$, 100 $\mu l$, 150 $\mu l$ y 200 $\mu l$.
+%   	\item Además, realizar los siguiente ensayos control:
+%   	\begin{enumerate}
+% 			\item Con 200 $\mu l$ de enzima inactivada (calentada durante 5 muntos en un baño a 85º C).
+% 			\item Sin lugol y con 200 $\mu l$ de enzima.
+% 		\end{enumerate}
+% 	\end{itemize}
+%   
+%  	Se elige para los siguientes ensayos el menor volumen que decolora totalmente la solución a los 10 minutos.
+%  
+ 
+  \section{Estimación de parámetros cinéticos}
+  Se intentará estimar valores de $k_m$ y $V_{max}$ para este extracto de enzima, en las condiciones de trabajo. Para ello, será necesario medir la velocidad a diferentes concentraciones de sustrato.
+  Para cada concentración de sustrato ensayada se construye una curva que refleje el cambio en la concentración del sustrato (midiendo $Abs_{620}$) en función del tiempo. Con los datos de esta curva se calcula la velocidad inicial ($V_0$) como el valor opuesto del límite de la pendiente de la curva cuando el tiempo tiende a cero (ver figura \ref{fig:calc_v0}).
+  
+ \begin{figure}%
+ \begin{center}
+ 
+\includegraphics[width=13cm]{images/v0_curves.pdf}%
+\end{center}
+\caption{Cambio en la absorbancia de 620nm en función del tiempo.}%
+\label{fig:calc_v0}%
+\end{figure}
+	
+	\begin{itemize}
+		\item Llevar a cabo la reacción con las siguientes cantidades de la solución de almidón: 50 $\mu l$, 60 $\mu l$, 70 $\mu l$, 80 $\mu l$, 90 $\mu l$ y 100 $\mu l$.
+		\item Definir una unidad enzimática acorde al trabajo realizado.
+		\item Estimar, si es posible, $k_m$ y $V_{max}$.
+	\end{itemize}
+  
+%   \section{Efecto del pH en la reacción}
+%   La enzima $\alpha$-amilasa tiene un pH óptimo de reacción cercano a 7. Se ensayará la pérdida de actividad de la enzima al variar el pH en el rango de 6 a 8.
+%   
+%   \subsection{Protocolo de reacción}
+%   \begin{itemize}
+%   	\item Se preparan alícuotas del buffer de reacción a los pH, 6.0, 6.5, 7.0, 7.5 y 8.0.
+%   	\item Se medirá la actividad enzimática en cada uno de ellos.
+% 	\end{itemize}
+
+\section{Preparación de reactivos}
+% \subsection{Buffer fosfato}
+% 	En el trabajo se requieren \textit{buffers} fosfato a 5 pH diferentes. Para ello, en lugar de hacer cada uno de ellos por separado, se
+% 	prepararán dos de ellos, los de mayor y menor pH (6 y 8). 
+% 	De cada uno de estos se harán 50ml. 
+% 	El resto se preparará por mezcla de estos dos y se controlará el pH con un pH-metro.
+% 	
+% 	En la tabla \ref{tab:buffers} se detalla la masa necesaria de cada componenete para la preparación de los \textit{buffers}. 
+% 	La masa de los compuestos debe corregirse según el estado de hidratación de los reactivos disponibles.
+% 	
+% 	\begin{table}[htb]%
+% 	 \begin{center}
+%    \begin{tabular}{lll}
+%       Componente                          & \textit{Buffer} pH 6.0  & \textit{Buffer} pH 8.0 \\ \hline
+%       Na$_2$HPO$_4$ (142 gr/mol)          & 260,5 mg                & 18,5 mg                \\ 
+%       NaH$_2$PO$_4$ (120 gr/mol)          & 333 mg                  & 46,6 mg                \\       
+%       NaCl (40 gr/mol)                    & 20 mg                   & 20 mg                  \\ 
+%       CaCl$_2$·H$_2$O (147.01 gr/mol)     & 73,5 mg                 & 73,5 mg                \\ 
+%       Volumen final                       & 50 ml                   & 50 ml                  
+%    \end{tabular}
+%    \end{center}
+%    \caption{Preparación del los \textit{buffers} fosfato requeridos}
+% \label{tab:buffers}
+% \end{table}
+	
+\subsection{Solución de Lugol 1\%}
+	Se prepararán 10 ml de esta solución.
+	Se pesan 100 mg de cada una de las drogas y se disuelven en agua.
+	Si es necesario se puede calentar la mezcla para fovorecer la disolución.
+	Esperar a que la mezcla se enfrie y luego se lleva a volumen en una probeta.
+	
+\subsection{Solución de Almidón 1\%}
+	Se prepararán 50 ml de esta solución.
+	Se pesan 500 mg de almidón y se resuspende en un volumen pequeño de agua.
+	En este paso el almidón no se disuelve en agua, sino que forma una suspensión.
+	Por otro lado, se caliente el volumen restante de agua hasta hervor.
+	Se agrega la suspensión de almidón en agua al agua que esta hirviendo, de a poco y mezclando bien.
+	Luego, se deja enfriar, se pasa a una probeta y se lleva a volumen final.
+	
+\end{document}
+  

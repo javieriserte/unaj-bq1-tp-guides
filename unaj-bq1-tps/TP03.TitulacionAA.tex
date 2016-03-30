@@ -1,0 +1,260 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+%\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+%\usepackage{boolexpr}
+\usepackage{datetime}
+\usepackage{nicefrac}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 14cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 25.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin 1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin 1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10pt										% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Bioquímica I}				                                                % Guardo el nombre de la asignatura.
+\newcommand{\seminarioName}{Trabajo Práctico N° 3 - Titulación de aminoácidos}    % Guardo el nombre de la guía de ejercicios.
+\newcommand{\fecha}{\ddmmyyyydate\today}                                              % Guardo la fecha.
+\newcommand{\titulo}{																										       	% Para hacer el Título como me gusta
+	\begin{center}																												        % Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\										              % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}																													  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}							% Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+
+	\section{Reacciones de disociación ácida}
+	Las constantes de disociación ácida, o K$_{a}$, es una medida que cuantifica la fuerza de un ácido en solución. 
+	Es la constante de equilibrio para la reacción de disociación en el contexto de reacciones ácido-base. 
+	El equilibrio de la reacción de disoación ácida se escribe como:
+
+  $$ HA \rightleftharpoons A^- + H^+$$
+  
+  Donde HA representa de forma genérica a cualquier ácido que puede disociarse en una báse conjugada A$^-$ y el ión 
+  hidrógeno H${^+}$ (el cual en solución acuosa existe como protón solvatado o catión hidronio). 
+  La constante de disociación se define como: 
+  
+  $$K_a = \frac{[A^-][H^+]}{[HA]}$$
+  
+  Debido a amplio rango de valores posibles para K$_{a}$, en la práctica es más frecuente trabajar con K$_{a}$ medido en escala logarítmica. Para esto se define: 
+  
+  $$pK_{a} = -log{10}(K_{a})$$
+	
+Los aminoácidos en solución acuosa se encuentran frente a al menos dos reacciones de disocación acida. 
+Dadas por el grupo $\alpha$-carboxilo y el grupo $\alpha$-amino. 
+Además varios aminoácidos poseen otros grupos suceptibles de disociarse en agua.
+Por lo tanto, el estado de protonación de los aminoácidos queda sujeto al pH de la solución. 
+En soluciones fuertemente ácidas se encontrarán totalmente protonados y con carga positiva. 
+En cambio, en soluciones fuertemente alcalinas, se encontrarán totalmente disociados y con carga negativa. 
+En la transición entre estas dos situaciones extremas, hay un punto en el cual cada aminoácido se encuentra 
+con carga neta igual a cero. Este punto se llama punto isoelectrico y está definido por el pH al cual 
+esto sucede. Para los aminoácidos con solamente dos constantes de disociación, el pI se puede estimar como:
+
+$$pI = \frac{pK_{a1} + pK_{a2}}{2}$$
+
+Para los demás, es posible tener una buena estimación modificando la ecuación anterior para incluir 
+los dos pK$_a$ de que correspoden a la forma neutra del aminoácido. En el cuadro \ref{tab:pkaa} 
+se muestran las constantes de disociación ácida de los 20 aminoácidos estándar. 
+
+
+\begin{table}[h!]
+	\centering
+	\small
+		\begin{tabular}{lcccc}
+		Aminoácido     & alfa-carboxilo     & alfa-amino & residuo   & PM    \\  \hline
+		Alanine        & 2.35               & 9.87       &           & 89.1  \\
+		Arginine       & 2.01               & 9.04       & 12.48     & 174.2 \\
+		Asparagine     & 2.02               & 8.80       &           & 132.1 \\
+		Aspartic Acid  & 2.10               & 9.82       & 3.86      & 133.1 \\
+		Cysteine       & 2.05               & 10.25      & 8.00      & 121.2 \\
+		Glutamic Acid  & 2.10               & 9.47       & 4.07      & 147.1 \\
+		Glutamine      & 2.17               & 9.13       &           & 146.1 \\
+		Glycine        & 2.35               & 9.78       &           & 75.1  \\
+		Histidine      & 1.77               & 9.18       & 6.10      & 155.2 \\
+		Isoleucine     & 2.32               & 9.76       &           & 131.2 \\
+		Leucine        & 2.33               & 9.74       &           & 131.2 \\
+		Lysine         & 2.18               & 8.95       & 10.53     & 146.2 \\
+		Methionine     & 2.28               & 9.21       &           & 149.2 \\
+		Phenylalanine  & 2.58               & 9.24       &           & 165.2 \\
+		Proline        & 2.00               & 10.60      &           & 115.1 \\
+		Serine         & 2.21               & 9.15       &           & 105.1 \\
+		Threonine      & 2.09               & 9.10       &           & 119.1 \\
+		Tryptophan     & 2.38               & 9.39       &           & 204.2 \\
+		Tyrosine       & 2.20               & 9.11       & 10.07     & 181.2 \\
+		Valine         & 2.29               & 9.72       &           & 117.1 \\	
+		\end{tabular}
+		\normalsize
+		\caption{Valores de pK para los difernetes aminoácidos.}
+		\label{tab:pkaa}
+\end{table}
+
+\section{Titulación de aminoácidos}
+Para ejemplificar, analicemos las propiedades ácido-base del aminoácido lisina. 
+La figura \ref{fig:Lys} muestra las tres reacciones de disociación ácida de la lisina. 
+El gráfico debajo muestra como varía el pH de una solución del aminoácido a medida que se 
+adicionan diferentes cantidades de equivalentes de una base fuerte.
+Este tipo de gráfico se conoce como la curva de titulación del aminoácido.
+A partir de este es posible estimar los valores de pK$_a$ y pI del aminoácido.
+Los valores de pK$_a$ corresponden con los valor de pH en el cual la curva tiene pendiente mínima.
+De acuerdo a la ecuación de Henderson y Hasselbach cuando el pH se iguala con el pK$_a$
+las concentraciones del ácido y de la base conjugada se igualan.
+Lo que lo confiere a la solución una mayor capacidad de regulación del pH.
+Por ello, la variación es mínima ($\nicefrac{dpH}{deqH^+} \approx 0$) .
+Además, el valor del PI puede estimarse como el valor de pH de mayor 
+pendiente que se encuentra entre los pK$_a$ de la forma neutra.
+  
+	\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/Lysine_Titration.PNG}
+	\caption{Titulación del aminoácido lisina. Panel superior: reacciones ácido-base para la lisina. Panel inferior: Curva de titulación.}
+	\label{fig:Lys}
+\end{figure}  
+
+\begin{itemize}
+	\item Escribir la reacciones de disociación ácida para la glicina y el aspartato.
+	\item Dibujar las curvas de titulación aproximadas para estos dos aminoácidos a 
+	partir de los valores de pK$_a$ y pI de la tabla.
+\end{itemize}
+	
+\section{Protocolo para la titulación de aminoácidos}
+  \begin{itemize}
+	\item Preparar 200 ml de soluciones de 0,1 M de NaOH y HCl.
+  \item Se titularán los aminoácidos glicina, histidina, lisina y aspartato. Sin conocer su identidad.
+	\item Pesar en matraz erlenmeyer, aproximadamente 0.8 mmoles de cada uno de los aminoácidos.
+	\item Disolver el aminoácido en un volumen cercano a los 20 ml.
+	\item Llevar todas las soluciones a pH 12, con solución de NaOH 0.1 M
+	\item Llenar una bureta con solución de HCl 0.1 M.
+	\item Agregar 0.5 ml de la solución contenida en la bureta al erlenmeyer con el aminoácido disuelto.
+	\item Agitar con cuidado.
+	\item Medir el pH.
+	\item Repetir el agregado anterior, hasta que el pH sea cercano a 1. (Anotar el volumen descargado desde el inicio).
+	\end{itemize}
+
+	\subsection{Preguntas y ejercicios}	
+	\begin{itemize}
+		\item Si se pesan exáctamente 0.8 mmoles de cada aminoácido y se titulan con una solución de HCl 0.1 M, 
+		¿qué volumen de la solución esperaría utilizar?
+		\item Graficar el pH en función de los equivalentes de HCl agregados.
+		\item Estimar a partir del gráfico los valores de pK$_a$ y pI para los aminoácidos.
+	\end{itemize}
+% \section{Valoración de la solución de HCl}
+% 	Para valorar la solución de HCl 0.1 N se utilizará al Tris o carbonato de sodio como droga patrón. 
+% 	Se pesará de cada droga la cantidad de moles necesario para que el volumen requerido de HCl 0.1 N sea de 
+% 	20 ml. El pesado se realizará sobre un matraz erlenmeyer y luego se disolverá con aproximadamente 
+% 	50 ml de agua destilada.
+% 	
+% 	\begin{itemize}
+% 		\item Escribir las reacciones de neutralización correspondientes.
+% 		\item ¿Cuántos moles son nesecarios pesar de Tris o de Na$_2$CO$_3$?
+% 		\item ¿Es la misma cantidad para ambos?
+% 	\end{itemize}
+% 	
+% 	Se añadirá una gota de la solución con el indicador azul de bromofenol (0,1\% (p/v) en alcohol etílico al 20\%). 
+% 	El cual tiene un color azul-púrpura a pH > 4.6 y amarillo a pH < 3.
+	
+\section{Reactivos y materiales}
+\begin{multicols}{2}
+  \begin{itemize}
+		\item Aspartato.
+		\item Histidina.
+		\item Lisina.
+		\item NaOH.
+		\item HCl.
+		\item pH-metro.
+		\item Vaso de precipitado de 100ml.
+		\item Matraz erlenmeyer.
+		\item Bureta de 25 ml.
+		\item H$_2$0 destilada.
+		\item Espátula.
+		\item Probeta de 100 ml.
+		\item Probeta de 10 ml.
+		%\item Azul de bromophenol.
+		%\item Tris.
+		%\item Na$_2$CO$_3$.
+	\end{itemize}
+\end{multicols}	
+	
+\end{document}
+  

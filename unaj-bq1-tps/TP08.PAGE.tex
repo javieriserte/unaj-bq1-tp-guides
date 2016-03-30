@@ -1,0 +1,234 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+%\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+%\usepackage{boolexpr}
+\usepackage{datetime}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 18cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 25.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin -1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin -1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10pt										% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Bioquímica I}				                                                % Guardo el nombre de la asignatura.
+\newcommand{\seminarioName}{Trabajo Práctico N° 8 - Separación de proteínas por SDS-PAGE}    % Guardo el nombre de la guía de ejercicios.
+\newcommand{\fecha}{\ddmmyyyydate\today}                                          % Guardo la fecha.
+\newcommand{\titulo}{																										       	% Para hacer el Título como me gusta
+	\begin{center}																												        % Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\										              % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}																													  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}							% Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+\newcommand{\percent}{\%}	
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+  
+ 	\section{Principios teóricos de la separación por SDS-PAGE}
+ 	La técnica de PAGE (Polyacrylamide Gel Electrophoresis) permite la separación de una mezcla proteínas bajo la acción
+ 	de un campo eléctrico. El principio general de la separación consiste en la movilidad diferencial que tienen distíntas 
+ 	moléculas sometidas a un campo eléctrico. La movilidad depende de la carga, y de la masa. El signo de la carga define 
+ 	la dirección de la migración de la molécula y su magnitud, la fuerza aplicada. El entorno ofrece una resistencia por 
+ 	fricción a la movilidad de las moléculas que se quieren separar. Las moléculas más pequeñas se ven expuestas a menor
+ 	fricción y por lo tanto son más móviles. Por lo tanto, la distancia recorrida por un compuesto en una electrofeoresis
+ 	depende de la carga y del tamaño.
+ 	
+ 	El SDS-PAGE es una variante del PAGE, en la cual las proteínas pueden ser separadas solamente por su tamaño, sin importar
+ 	la carga intrínseca de la proteína. En en SDS-PAGE, las proteínas se desnaturalizan por el agregado del detergente iónico 
+ 	docecil-sulfato de sodio (SDS, ver figura \ref{fig:sds}). El SDS interactúa con las proteínas por su cola no polar, de esta
+ 	forma un molécula de proteína se encuentra envuelta en muchas moléculas de SDS. Debido a la carga neta negativa del SDS y al 
+ 	gran númera de moléculas de SDS que interactúa con la proteína, el complejo formado por la asociación entre una proteínas y 
+ 	el SDS tiene una carga que depende prácticamente de este último. La carga aportada por la proteína es despreciable en 
+ 	comparación. Se observa que la cantidad de moléculas de SDS que interactúa con una proteína depende de su tamaño. Por ello,
+ 	si la carga del complejo depende de la cantidad de moléculas de SDS y la cantidad de moléculas de SDS depende del tamaño de 
+ 	la proteína, entonces la carga solo depende del tamaño. Dicho en otras palabras, la relación carga/masa es constante
+ 	para todas las proteínas y la separación solo depende del tamaño.
+ 	
+ 	\begin{figure}[!hbt]%
+	  \begin{center}
+	    \includegraphics[width=7cm]{images/sds.pdf}%
+	    \caption{Estructura de docecil solfato de sodio.}%
+	  \label{fig:sds}%
+	\end{center}
+	\end{figure}
+
+	La matriz en donde se da la separación es un gel de poliacrilamida. La acrilamida se polimeriza dando 
+	cadena lineales. La poliacrilamida lineal no tiene consistencia de gel, sino que es soluble. Sin embargo, 
+	la polimerización no se hace solo con acrilamida, sino que se agrega una pequeña proporción de bis-acrilamida.
+	La bis-acrilamida puede, al polimerar, forma parte de dos cadenas, entrecruzándolas. Este efecto, a gran escala,
+        permite el entrecruzamiento de todas las cadena lineales formado una malla tridimensional (ver figura \ref{fig:gel}).
+        La cantidad de acrilamida y bisacrilamida definen la constencia del gel. Tipicamente, la proporción entre ellas es 
+        siempre constante (29:1) y la concentración total de ambas se varía para obetener geles de diferentes características.
+        En la separación, las proteínas migran entre los poros que se forman en el interior de esta malla tridimensional.
+        Geles con menor porcentaje de acrilamida, forman poros de mayor tamaño y por ende producen menos fricción a las 
+        proteínas y estas son más móviles.
+
+        \begin{figure}[!hbt]%
+	  \begin{center}
+	    \includegraphics[width=10cm]{images/gel.pdf}%
+	    \caption{Acrilamida, bisacrilamida y el polímero que forman.}%
+	  \label{fig:gel}%
+	\end{center}
+	\end{figure}
+        
+        Para obtener una buena separación es ideal que todas la proteínas ingresen al gel de separación al mismo momento. 
+        Sin embargo, hacer esto no es trivial. Para lograr esto, los geles están formado en realidad de dos geles de composición
+        diferentes juxtapuestos. El primero, de \textit{stacking} o apilamiento, es un gel de bajo porcentaje de acrilamida que se
+        encuentra en un buffer de pH 6.8 y su longitud es pequeña. El segundo, de separación, es de mayor porcentaje y el pH de la 
+        buffer es 8.8. La función de este último gel es, como dice el nombre, separar las proteínas. En cambio, la función del 
+        primero es juntar todas las proteínas (apilarlas) en una banda estrecha sobre la interfase entre los dos geles. De forma tal, 
+        que la todas las proteínas entren al gel de separación al mismo momento. Para entender como se da el fenómeno de apilamiento
+        de las proteínas hay que tener en cuenta el pH (6,8), el tamaño de los poros del gel y que el buffer contiene dos aniones
+        principalmente: cloruros y glicina. Los cloruros tienen una relación carga/masa elevada y por ello son muy móviles.
+        Rápidamente se concentra cerca del ánodo. La glicina (cuyo pI es aproximadamente 6) tiene una leve carga negativa, y aunque 
+        su peso molecalar sea bajo (en comparación con una proteína) su movilidad es pequeña. Las proteínas tienen una relación 
+        carga masa que les da una movilidad un poco mayor a la de la glicina. En esta situación hay dos corrientes principales, la de 
+        los iones cloruro al frente de la corrida, y la de la glicina atrás. Entre ellas, se forma una región estrecha de baja conductividad
+        eléctrica y alta resistencia. Las proteínas solo pueden moverse en esa pequeña banda de baja conductividad eléctrica a través del 
+        del de apilamiento. Cuando la glicina, llega al gel separador, el cambio 
+        de pH (8.8) produce que la relación carga/masa aumente y con ella, la movilidad. La banda de baja conductividad desaparece y la proteínas
+        migrar de acuerdo a su tamaño desde este punto inicial, en el cual están todas en la misma posición.
+        
+        \section{Protocolo de SDS-PAGE}
+        
+        \subsection{Soluciones}
+          \begin{description}     
+	          \item[\textit{Buffer} de siembra] \hspace{1pt}
+	            \begin{itemize}
+	            \item 10\percent SDS
+	            \item 20\percent glicerol
+	            \item 0.2M Tris-HCl
+	            \item 10mM DTT
+	            \item pH 6.8 (No ajustar pH).
+	    \end{itemize}	    
+	    \item[\textit{Buffer} de corrida]
+	    \begin{itemize}
+	      \item 0.025M Tris
+	      \item 0.2M glycine 
+	      \item 0.1\percent SDS
+	      \item pH 8.5 (No ajustar pH)
+	    \end{itemize}
+	    \item[Solución de revelado]
+	    \begin{itemize}
+	      \item 40\percent H$_2$O
+	      \item 10\percent ácido acético
+	      \item 50\percent metanol
+	      \item 0.1\percent Coomasie Blue R250
+	    \end{itemize}	    
+	    \item[Solución de destinción]
+	    \begin{itemize}
+	      \item 40\percent H$_2$O
+	      \item 10\percent ácido acético
+	      \item 50\percent metanol
+	    \end{itemize}	    
+	  \end{description}
+	  
+        \subsection{Armado de los geles}
+           Los geles de apilamiento y separación se armarán de acuerdo
+           con las siguientes recetas. La acrilamida es neurotóxica, por
+           lo cual hay que trabajar con mucho cuidado y usar siempre guantes.
+           Los volumenes mostrado son suficientes para armar dos geles.
+           \subsubsection{Gel de apilamiento - 5ml}
+	    \begin{center}
+	      \begin{tabular}[h]{lr}
+	        H$_2$O                                 & 3 ml       \\
+	        Acrilamida/Bis-Acrilamida (30\percent) & 0.67 ml    \\
+	        \textit{buffer} 0.5 M Tris-HCl, pH 6.8 & 1.25 ml    \\
+	        SDS 10\percent(p/v)                    & 50 $\mu$l \\
+	        Persulfato de amonio 10\percent(p/v)   & 50 $\mu$l \\
+	        TEMED                                  & 5 $\mu$l 
+	      \end{tabular}
+	    \end{center}
+	    \subsubsection{Gel de separación 12\percent - 10 ml}
+	    \begin{center}
+	      \begin{tabular}[h]{lr}
+	        H$_2$O                                 & 3.2 ml     \\
+	        Acrilamida/Bis-Acrilamida (30\percent) & 4 ml       \\
+	        \textit{buffer} 1.5 M Tris-HCl, pH 8.8 & 1.25 ml    \\
+	        SDS 10\percent(p/v)                    & 100 $\mu$l \\
+	        Persulfato de amonio 10\percent(p/v)   & 100 $\mu$l \\
+	        TEMED                                  & 10 $\mu$l     
+	      \end{tabular}
+	    \end{center}
+\end{document}
+  

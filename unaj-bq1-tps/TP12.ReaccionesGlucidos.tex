@@ -1,0 +1,245 @@
+%% Based on a TeXnicCenter-Templat%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%
+\documentclass[a4paper, twoside]{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
+\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}						% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
+\usepackage{array}
+\usepackage{soul}
+\usepackage{boolexpr}
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 18cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 25.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin -1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin -1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10pt										% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Bioquímica I}				                                                % Guardo el nombre de la asignatura.
+\newcommand{\seminarioName}{Trabajo Práctico N° 7 - Reacciones Características de Azúcares}    % Guardo el nombre de la guía de ejercicios.
+\newcommand{\fecha}{Diciembre de 2012}                                          % Guardo la fecha.
+\newcommand{\titulo}{																										       	% Para hacer el Título como me gusta
+	\begin{center}																												        % Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\										              % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}																													  % Para hacer el Título como me gusta
+}
+
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}							% Creo el encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+\begin{document}
+  \titulo
+  
+  \section{Azúcares a ensayar}
+  Durante este trabajo práctico se ensayan diferentes reacciones sobre cuatro azúcaresw distintos: 
+  \begin{itemize}
+		\item glucosa
+		\item fructosa
+		\item sacarosa
+		\item lactosa
+	\end{itemize}
+  En la mayoría de los casos, se emplearán soluciones al 5\% de cada uno de los azúcares. Por ello, el primer paso será prepar 10 ml de cada una de estas soluciones.
+  
+  \section{Reacción del ácido múcico}
+  La mayoría de los monosacáridos pueden ser oxidados por la presencia de ácido nítrico concentrado y alta temperatura. La oxidación se da sobre los oxhidrilos y aldehidos primarios, obteniendose ácidos dicarboxilicos. En general estos ácidos dicarboxílicos son solubles en agua, excepto el ácido múcico o galactárico es poco soluble en agua. El ácido mucico se obtiene de la oxidación del monosacárido galactosa. La lactosa también da un resultado positivo en esta reacción, debido a que el enlace glicosídico entre las subunidades de glucosa y galactosa se hidrolisa en el medio ácido y caliente en el que se lleva a cabo la reacción.
+  
+  \subsection{Protocolo de reacción}
+  \begin{itemize}
+	\item Agregar en tubos diferentes 0.5 ml de cada una de las soluciones al 5 \% de azúcares.
+	\item Agregar con cuidado 0.5 ml de HNO$_{3}$ concentrado a cada tubo.
+	\item Incubar en un baño de agua hirviendo durante 45 minutos.
+	\item Retirar el tubo del baño y dejar enfriar lentamente.
+	\item La reacción positiva tiene un procipitado blanco de ácido múcico en el fondo del tubo.
+	\end{itemize}
+  
+  \section{Reacción de Fehling}
+  Este ensayo pone de manifiesto la presencia de azucares reductores. Se trata de una reacción redox en la que el grupo aldehido de los  azúcares es oxidado a grupo ácido por el Cu$^{2+}$ que se reduce a Cu$^{+}$. Tanto los monosacáridos como los disacáridos reductores reaccionan con el Cu$^{2+}$ dando un precipitado rojo de oxido cuproso. La reacción tiene lugar en medio básico por lo que es necesario introducir en la reacción tartrato sódico-potásico para evitar la precipitación del hidróxido cúprico. La prueba de Fehling no es específica; otras sustancias que dan reacción positiva son los fenoles, aminofenoles, benzoína, ácido úrico, catecol, ácido fórmico, hidrazobenceno, fenilhidrazina, pirogalol y resorcinol.
+  
+  \subsection{Protocolo de reacción}
+  \begin{itemize}
+		\item Preparar la solución I: CuSO$_{4}\cdot$5H${_2}$O al 7\% en agua.
+		\item Preparar la solución II: Tartrato de sodio y potasio al 35\%, NaOH al 10\% en agua.
+		\item Preparar el reactivo de Fehling, mezclando igual volumen de la solución I y II.
+		\item Agregar en tubos diferentes 0.5 ml de cada una de las soluciones al 5 \% de azúcares.
+		\item Agregar a cada tubo 0.5 ml del reactivo de Fehling.
+		\item Llevar los tubos a un baño en ebullición durante 5 minutos.
+		\item Retirar los tubos del baño y dejar enfriar.
+		\item La reacción positiva tiene un procipitado rojo de óxido cuproso.
+	\end{itemize}
+  
+  \section{Reacción de Molisch}
+  Este ensayo permite detectar genéricamente la presencia de hidratos de carbono en una muestra. Se basa en la acción hidrolizante y deshidratante que ejerce el ácido sulfúrico sobre estos compuestos. Los ácidos concentrados provocan la deshidratación de los azúcares para dar furfurales, que son derivados aldehídicos del furano. Los furfurales se condensan con los fenoles para dar productos coloreados. 
+  \subsection{Protocolo de reacción}
+  \begin{itemize}
+	\item Agregar en tubos diferentes 0.5 ml de cada una de las soluciones al 5 \% de azúcares.
+	\item A cada tubo se le añaden unas gotas de reactivo de Molisch ($\alpha$-naftol al 5\% en etanol) y se mezcla.
+	\item Inclinar los tubos y déjer caer cuidadosamente 1 ml de ácido H$_{2}$SO$_{4}$ concentrado a lo largo de la pared de manera que se forme una capa debajo de la fase acuosa.
+	\item Calentar los tubos en un baño de agua por unos minutos.
+	\item La reacción es positiva si se forma un anillo rojo violáceo en la interfase.
+	\end{itemize}
+
+  \section{Reacción de Barfoed}
+  Todos los azúcares reaccionan con el acetado cúprico. Sin embargo, los monosacáridos lo hacen más velozmente que los disacáridos, por ello esta reacción permite diferenciarlos. El producto de la reacción es un precipitado rojizo de óxido de cobre.
+	\subsection{Protocolo de reacción}
+
+	\begin{itemize}
+	\item Preparar el reactivo de Barfoed añadiendo 50 $\mu$l de ácido acético glacial a 5 ml de acetato cúprico al 6.6\%.
+	\item Agregar en tubos diferentes 0.5 ml de cada una de las soluciones al 5 \% de azúcares.
+	\item Añadir a cada tubo 5 ml del reactivo de Barfoed.
+	\item Llevar los tubos a un baño de agua en ebullición durante 5 minutos.
+	\end{itemize}
+	
+  \section{Reacción de Tollens}
+  Los azúcares que tienen un extremo reductor pueden reducir al catión Ag$^{+}$ a Ag$^{0}$, la cual precipita. Si la velocidad de reacción no es muy elevada, la plata precipitada da un espejado en el tubo de reacción. \\
+  El reactivo de Tollens es el catión diaminplata (Ag(NH${_3}$)${_2}^{+}$). Este se obtiene en dos pasos sucesivos:
+  \begin{center}
+  $2Ag^{+} + 2OH^{-} \rightarrow Ag_{2}O + H_{2}O $\\
+	$Ag_{2}O + 2NH_{3} \rightarrow Ag(NH_{3})_{2}^{+} + 2OH^{-}$
+	\end{center}
+	Luego, este catión reacciona con el aldehido terminal de los azucares reductores.:
+  \begin{center}
+%  $2Ag^{+} + H_{2}O + \includegraphics[scale=0.6]{images/carbonil.pdf} \rightarrow Ag^{0} + 2H^{+} + \includegraphics[scale=0.6]{images/carboxil.pdf} $\\
+  $2Ag^{+} + H_{2}O + R_{1}-CH=O \rightarrow Ag^{0} + 2H^{+} + R_{1}-COOH $\\
+	\end{center}
+
+  \subsection{Protocolo de reacción}
+  \begin{itemize}
+  \item Preparar el reactivo de tollens.
+  \begin{itemize}
+    \item Agregar en tubos diferentes 0.2 ml de cada una de las soluciones al 5 \% de azúcares.
+		\item Colocar en tubos de 1.5 ml bien limpio (uno para cada azucar), 0.5 ml de solución de AgNO$_{3}$  al 2\%.
+		\item Agregar al tubo anterior NaOH 2\%, gota a gota, hasta que no se forme más precipitado.
+		\item Agregar al tubo anterior, gota a gota, (NH${_4}$)${_2}$SO${_4}$ 4\% hasta que el precipitado inicialmente formado, se redisuelva. Mezclar 						después del agregado de cada gota.
+		\item El volumen final es cercano a 1 ml.
+		\end{itemize}
+	\item Agregar a los tubos con azucar 1 ml del reactivo de {T}ollens y mezclar.
+	\item Calentar el tubo en baño de agua a 60 - 65°C, durante unos minutos (no más de 10 minutos).
+	\end{itemize}
+
+  \section{Reacción de Antrona}
+  La antrona es un compuesto aromático tricíclico. Todos los azúcares reaccionan con la antrona en caliente y medio ácido dando una coloración verde.
+  
+\begin{figure}[!htbp]
+	\centering
+		\includegraphics{images/Anthrone_p1.pdf}
+		\includegraphics{images/Anthrone_p2.pdf}
+	\caption{Reacción de antrona}		
+	\label{fig:Anthrone_p1}
+\end{figure}
+  
+  \subsection{Protocolo de reacción}
+  \begin{itemize}
+	\item Preparar en tubos diferentes muestras de 250 $\mu$l de soluciones de glucosa de concentración conocida: 0 $\mu$g, 2.5 $\mu$g, 5 $\mu$g, 7.5 $\mu$g y 10$\mu$g.
+	\item Agregar a cada tubo 0.75 ml de solución de antrona al 0.2\% en ácido sulfúrico 95\% lentamente, sobre la pared del tubo y dentro de un baño de hielo. 
+	\item Mezclar bien y se llevar a un baño en ebullición durante 10 min. 
+	\item Deja enfriar unos minutos.
+	\item Leer la absorbancia a 630 nm (los positivos dan un color verdoso, los negativos, amarillo). 
+	\end{itemize}
+
+  \section{Reactivos y materiales}
+  \begin{itemize}
+  	\begin{multicols}{3}
+		\item Pipetas p1000, p200 y p20.
+		\item Tips p1000, p200/p20.
+		\item Agua destilada.
+		\item Balanza analítica.
+		\item Papel absorbente común.
+		\item CuSO$_4$ sólido.
+		\item Matraces de 100ml, 50 ml y 20ml.
+		\item pH-metro.
+		\item Espectrofotómetro.
+		\item Cubetas plásticas.
+		\item Tubos eppendorf.
+		\item Sulfato de amonio sólido.
+		\item Antrona sólido.
+		\item Nitrato de plata sólido.
+		\item Hidróxido de sodio sólido.
+		\item Glucosa sólido.		
+		\item Fructosa sólido.		
+		\item Sacarosa sólido.		
+		\item Lactosa sólido.		
+		\item Ácido acético glacial.
+		\item Acetato de cubre(II) sólido.
+		\item Ácido Nítrico.
+		\item Ácido sulfúrico.
+		\item Tartrato de sódico y potásico.
+		\item $\alpha$-naftol.
+		\item Etanol 96$^{0}$.
+  	\end{multicols}
+	\end{itemize}
+	
+\end{document}
+  
