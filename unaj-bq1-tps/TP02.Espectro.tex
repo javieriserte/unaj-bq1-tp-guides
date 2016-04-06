@@ -25,83 +25,9 @@
 
 % Lista de Paquetes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{pifont}             % Maneja Fuentes 
-%\usepackage{PTSans}             % Maneja Fuentes Sans Serif
-%\usepackage{skak}               % simbolos de ajedrez
-\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
-\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
-\usepackage{pslatex}            % Texto de alta calidad en pdfs
-\usepackage{textcomp}           % Cosas de Texto
-\usepackage{multicol}           % Para manejar multiples columnas
-\usepackage[ansinew]{inputenc}  % Para poner acentos
-%\usepackage[utf8]{inputenc}  % Para poner acentos
-\usepackage[spanish]{babel}     % Para separar palabras al fin de los renglones.
-\usepackage{amsmath}            % Para hacer matemática
-\usepackage{amsfonts}           % Para hacer matemática
-\usepackage{amssymb}            % Para hacer matemática
-\usepackage{enumerate}          % Para Manehar Enumeraciones
-\usepackage{vwcol}							% para manejar multiples columas
-\usepackage{graphicx}						% Para manejar los gráficos
-\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
-\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
-%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del documento pdf
-\usepackage{array}
-\usepackage{soul}
-\usepackage{datetime}
-%\usepackage{boolexpr}
-\usepackage{natbib}
-
-% Configuración de página
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\textwidth 18cm									% Declaraciones para cambiar el tamaño del área de texto para usar
-\textheight 25.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
-\oddsidemargin -1cm						% Declaraciones para cambiar el tamaño del área de texto para usar
-\evensidemargin -1cm					% Declaraciones para cambiar el tamaño del área de texto para usar
-\topmargin -1.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
-\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
-\headsep 10pt										% Declaraciones para cambiar el tamaño del área de texto para usar
-\marginparwidth 0cm
-
-% Bibliografía
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\bibliographystyle{alpha}       % estilo de la bibliografia
-\bibliographystyle{jplainnat}  	
-% Titulo
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\s}{\the\textwidth}	
-\newcommand{\materiaName}{Bioquímica I}				                            % Guardo el nombre de la asignatura.
+\input{prelude}
 \newcommand{\seminarioName}{Trabajo Práctico N° 2 - Espectrofotometría}   % Guardo el nombre de la guía de ejercicios.
-\newcommand{\fecha}{\ddmmyyyydate\today}                                                % Guardo la fecha.
-\newcommand{\titulo}{																% Para hacer el Título como me gusta
-	\begin{center}																% Para hacer el Título como me gusta
-	\vspace*{-22pt}\large\textbf{\materiaName}\\								% Para hacer el Título como me gusta				
-	\vspace{2pt}\normalsize{\seminarioName}\\									% Para hacer el Título como me gusta
-	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\  % Para hacer el Título como me gusta
-	\vspace{-6pt}\rule{\textwidth}{0.4pt}
-	\end{center}                                                                  % Para hacer el Título como me gusta
-}
-
-% Encabezado y Pie de Página
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headheight=14pt																								% Creo el encabezado y pie página que quiero.
-\renewcommand{\headrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
-\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
-\pagestyle{fancy}%																								% Creo el encabezado y pie página que quiero.
-\fancyfoot{}																									% Creo el encabezado y pie página que quiero.
-\lfoot{\footnotesize{Página \thepage\ de \pageref{LastPage}}}                                              % Creo el encabezado y pie página que quiero.
-\lhead{\footnotesize{\materiaName}}                                                                         % Creo el encabezado y pie página que quiero.
-\rhead{\footnotesize{\fecha\  - \seminarioName}}                                                           % Creo el encabezado y pie página que quiero.
-
-% Fuentes
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
-
-% Enumeraciones
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\theenumi}{\alph{enumi}}
-\renewcommand{\labelenumi}{\textbf{\theenumi}}
-\renewcommand{\theenumii}{\arabic{enumii}}
-\renewcommand{\labelenumii}{\theenumii}
+\newcommand{\imgfolder}{images_tp02/}
 
 \begin{document}
   \titulo
@@ -120,7 +46,7 @@
   
 \begin{figure}[!ht]
 	\centering
-		\includegraphics{LAB_01.pdf}
+		\includegraphics{\imgfolder LAB_01.pdf}
 	\caption{Haz de luz atravesando un material de espesor $Z$.}		
 	\label{fig:LB01}
 \end{figure}
@@ -131,14 +57,14 @@
   
 \begin{figure}[!ht]
 	\centering
-		\includegraphics{LAB_02.pdf}
+		\includegraphics{\imgfolder LAB_02.pdf}
 	\caption{Se divide el espesor $Z$ en multiples secciones del espesor $\Delta Z$}
 	\label{fig:LB02}
 \end{figure}
 
 \begin{figure}[!ht]
 	\centering
-		\includegraphics{LAB_03.pdf}
+		\includegraphics{\imgfolder LAB_03.pdf}
 	\caption{El material es de espesor $\Delta Z$ infinitesimalmente pequeño}		
 	\label{fig:LB03}
 \end{figure}	
@@ -209,7 +135,7 @@ El valor $\epsilon$ se encuentra tabulado para muchos compuestos y se llama coef
 
 \begin{figure}[!ht]
 	\centering
-		\includegraphics[width=100mm]{Absorbance_Vs_Transmitance.pdf}
+		\includegraphics[width=100mm]{\imgfolder Absorbance_Vs_Transmitance.pdf}
 	\caption{Transmitancia vs. Absorbancia.}
 	\label{fig:TvsA}
 \end{figure}
@@ -224,7 +150,7 @@ Del otro lado, se mide la intensidad del haz que atravesó la cubeta con un senso
 	
 	\begin{figure}[!ht]
 	\centering
-		\includegraphics[width=100mm]{CopperSulphateSpectrum.jpg}
+		\includegraphics[width=100mm]{\imgfolder CopperSulphateSpectrum.jpg}
 	\caption{Espectro del sulfato de cobre a diferentes concentraciones.}
 	\label{fig:Spectrum}
 \end{figure}
@@ -256,7 +182,8 @@ Del otro lado, se mide la intensidad del haz que atravesó la cubeta con un senso
   \section{Cálculo del coeficiente de extinción molar del DCPIP}
     Proponer una metodología experimental para estimar el valor $\epsilon$ del DCPIP a pH 6. 
     Calcular el coeficiente de extinción molar para este compuesto a 600nm (expresarlo en las unidades $M^{-1}cm^{-1}$).
-    Para obtener un valor de referencia leer el trabajo de \citet{vanderWerf:1999}.
+    Para obtener valores de referencia buscar y leer los trabajo de 
+    \citet{vanderWerf:1999} y \citet{Gurtoo:1971}.
     
     
 
@@ -298,7 +225,7 @@ Del otro lado, se mide la intensidad del haz que atravesó la cubeta con un senso
 		\item Embudo.
 	\end{itemize}
 
-  \bibliography{citas}
+  \bibliography{biblio/tp2_citas}
   
 \end{document}
   
